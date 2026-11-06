@@ -8,13 +8,13 @@
 
 ## 👥 Team Members
 
-| Name | ID | Role | Files |
-|------|----|----|-------|
-| **Abraham Amogne** | ETS 1848/17 | Core Infrastructure & Search | 22 |
-| **Saron Anbesaw** | ETS 1309/17 | Passenger Booking Flow | 8 |
-| **Seble Sisay** | ETS 1314/17 | Staff Flight Operations & Auth | 9 |
-| **Senet Anbesaw** | ETS 1332/17 | Staff Crew & Schedule Analytics | 8 |
-| **Shanbel Dires** | ETS 1336/17 | Passenger Check-In & Boarding Services | 6 |
+| Name | ID | GitHub Username | Role | Files |
+|------|----|-----------------|------|-------|
+| **Abraham Amogne** | ETS 1848/17 | [@EstarCode](https://github.com/EstarCode) | Core Infrastructure & Search | 22 |
+| **Saron Anbesaw** | ETS 1309/17 | [@saron212](https://github.com/saron212) | Passenger Booking Flow | 8 |
+| **Seble Sisay** | ETS 1314/17 | [@sebleeee](https://github.com/sebleeee) | Staff Flight Operations & Auth | 9 |
+| **Senet Anbesaw** | ETS 1332/17 | [@senet03](https://github.com/senet03) | Staff Crew & Schedule Analytics | 8 |
+| **Shanbel Dires** | ETS 1336/17 | [@TOT8894](https://github.com/TOT8894) | Passenger Check-In & Boarding Services | 6 |
 
 ---
 
@@ -89,7 +89,7 @@ airline-operations-system/
 
 ## 📋 Member Assignments
 
-### Abraham Amogne (ETS 1848/17) - 22 files
+### Abraham Amogne (ETS 1848/17) - [@EstarCode](https://github.com/EstarCode) - 22 files
 **HTML (3):** index.html, search-flights, flight-details  
 **CSS (8):** Core (reset, variables, typography, layout), Components (buttons, cards, navigation), Utilities (responsive)  
 **JS (11):** Core (app, config, constants), Utils (validators, formatters, helpers, error-handler), Services (storage, data), Controllers (search), Data (seed-data)  
@@ -97,7 +97,7 @@ airline-operations-system/
 
 ---
 
-### Saron Anbesaw (ETS 1309/17) - 8 files
+### Saron Anbesaw (ETS 1309/17) - [@saron212](https://github.com/saron212) - 8 files
 **HTML (4):** booking-form, booking-confirmation, bookings-list, booking-cancellation  
 **CSS (2):** forms, modals  
 **JS (2):** booking-model, booking-controller  
@@ -105,7 +105,7 @@ airline-operations-system/
 
 ---
 
-### Seble Sisay (ETS 1314/17) - 9 files
+### Seble Sisay (ETS 1314/17) - [@sebleeee](https://github.com/sebleeee) - 9 files
 **HTML (3):** login, dashboard, flights-management  
 **CSS (2):** tables, staff-portal  
 **JS (4):** flight-model, user-model, auth-service, flights-controller  
@@ -113,7 +113,7 @@ airline-operations-system/
 
 ---
 
-### Senet Anbesaw (ETS 1332/17) - 8 files
+### Senet Anbesaw (ETS 1332/17) - [@senet03](https://github.com/senet03) - 8 files
 **HTML (4):** crew-management, crew-assignment, schedule-view, reports-analytics  
 **CSS (1):** reports  
 **JS (3):** crew-model, crew-controller, reports-controller  
@@ -121,7 +121,7 @@ airline-operations-system/
 
 ---
 
-### Shanbel Dires (ETS 1336/17) - 6 files
+### Shanbel Dires (ETS 1336/17) - [@TOT8894](https://github.com/TOT8894) - 6 files
 **HTML (3):** check-in, boarding-pass, flight-status  
 **CSS (1):** check-in  
 **JS (2):** check-in-model, check-in-controller  
@@ -466,7 +466,7 @@ git checkout -b feature/your-name-module
 
 **Daily Standups:** 15 min (What done? What next? Blockers?)  
 **Weekly Meetings:** 1 hour (Progress review, demos, planning)  
-**Git Repository:** [Add URL]  
+**Git Repository:** [Airline-Operations-and-Booking-Management-system_project](https://github.com/saron212/Airline-Operations-and-Booking-Management-system_project)  
 **Team Chat:** [Add platform/group]
 
 ---
