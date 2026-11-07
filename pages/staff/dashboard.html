@@ -1,0 +1,195 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Airline Staff Dashboard">
+    <title>Staff Dashboard | Airline Operations System</title>
+</head>
+
+<body>
+
+    <!-- Header and Navigation -->
+    <header>
+        <h1>Airline Operations System</h1>
+        <p>Staff Dashboard</p>
+
+        <nav aria-label="Staff navigation">
+            <a href="dashboard.html">Dashboard</a>
+            <a href="flights-management.html">Flight Management</a>
+            <a href="crew-management.html">Crew Management</a>
+            <a href="schedule-view.html">Schedules</a>
+            <a href="reports-analytics.html">Reports</a>
+        </nav>
+    </header>
+
+    <main>
+
+        <!-- Welcome Section -->
+        <section aria-labelledby="welcome-heading">
+            <h2 id="welcome-heading">Welcome to the Staff Dashboard</h2>
+            <p>Manage airline operations from one place.</p>
+        </section>
+
+        <!-- Flight Statistics -->
+        <section aria-labelledby="flight-summary-heading">
+            <h2 id="flight-summary-heading">Flight Overview</h2>
+
+            <article>
+                <h3>Total Flights</h3>
+                <p id="total-flights">0</p>
+            </article>
+
+            <article>
+                <h3>Scheduled Flights</h3>
+                <p id="scheduled-flights">0</p>
+            </article>
+
+            <article>
+                <h3>Cancelled Flights</h3>
+                <p id="cancelled-flights">0</p>
+            </article>
+        </section>
+
+        <!-- Flight Status Overview -->
+        <section aria-labelledby="flight-status-heading">
+            <h2 id="flight-status-heading">Flight Status Overview</h2>
+
+            <article>
+                <h3>On Time</h3>
+                <p id="on-time-flights">0</p>
+            </article>
+
+            <article>
+                <h3>Delayed</h3>
+                <p id="delayed-flights">0</p>
+            </article>
+
+            <article>
+                <h3>In Progress</h3>
+                <p id="in-progress-flights">0</p>
+            </article>
+
+            <article>
+                <h3>Completed</h3>
+                <p id="completed-flights">0</p>
+            </article>
+
+            <article>
+                <h3>Cancelled</h3>
+                <p id="status-cancelled-flights">0</p>
+            </article>
+        </section>
+
+        <!-- Recent Flights -->
+        <section aria-labelledby="recent-flights-heading">
+            <h2 id="recent-flights-heading">Recent Flights</h2>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>Flight Number</th>
+                        <th>Destination</th>
+                        <th>Departure Time</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    <tr>
+                        <td>ET302</td>
+                        <td>Nairobi</td>
+                        <td>08:30 AM</td>
+                        <td>Completed</td>
+                    </tr>
+
+                    <tr>
+                        <td>ET611</td>
+                        <td>Dubai</td>
+                        <td>10:45 AM</td>
+                        <td>Scheduled</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <!-- Upcoming Flights -->
+        <section aria-labelledby="upcoming-flights-heading">
+            <h2 id="upcoming-flights-heading">Upcoming Flights</h2>
+
+            <ul>
+                <li>ET405 – London – 02:30 PM</li>
+                <li>ET712 – Johannesburg – 04:00 PM</li>
+                <li>ET920 – Cairo – 06:15 PM</li>
+            </ul>
+        </section>
+
+        <!-- Operational Alerts -->
+        <section aria-labelledby="operational-alerts-heading">
+            <h2 id="operational-alerts-heading">Operational Alerts</h2>
+
+            <ul>
+                <li>
+                    <strong>Flight Delay:</strong>
+                    ET611 departure time has changed.
+                </li>
+
+                <li>
+                    <strong>Crew Assignment:</strong>
+                    ET405 requires crew assignment confirmation.
+                </li>
+
+                <li>
+                    <strong>Schedule Update:</strong>
+                    Please review upcoming flight schedules.
+                </li>
+            </ul>
+        </section>
+
+        <!-- Notifications -->
+        <section aria-labelledby="notifications-heading">
+            <h2 id="notifications-heading">Notifications</h2>
+
+            <ul>
+                <li>ET302 has completed its journey.</li>
+                <li>ET611 is scheduled for departure.</li>
+                <li>Please review the latest airline updates.</li>
+            </ul>
+        </section>
+
+        <!-- Quick Actions -->
+        <section aria-labelledby="quick-actions-heading">
+            <h2 id="quick-actions-heading">Quick Actions</h2>
+
+            <ul>
+                <li>
+                    <a href="flights-management.html">Manage Flights</a>
+                </li>
+
+                <li>
+                    <a href="crew-management.html">Manage Crew</a>
+                </li>
+
+                <li>
+                    <a href="schedule-view.html">View Schedules</a>
+                </li>
+
+                <li>
+                    <a href="reports-analytics.html">View Reports</a>
+                </li>
+            </ul>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2026 Airline Operations System. All rights reserved.</p>
+    </footer>
+
+</body>
+</html>
+
+
