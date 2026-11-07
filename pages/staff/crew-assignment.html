@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Assign qualified airline crew members to flights and review assignment coverage.">
+  <title>Crew Assignment | Ethiopian Wings Staff Portal</title>
+</head>
+<body>
+  <a href="#main-content">Skip to main content</a>
+
+  <header>
+    <div>
+      <a href="../../index.html" aria-label="Ethiopian Wings home">
+        <span aria-hidden="true">✈</span>
+        <span><strong>Ethiopian Wings</strong><small> STAFF OPERATIONS</small></span>
+      </a>
+    </div>
+    <nav aria-label="Staff navigation">
+      <ul>
+        <li><a href="dashboard.html">Dashboard</a></li>
+        <li><a href="flights-management.html">Flight Management</a></li>
+        <li><a href="crew-management.html">Crew Management</a></li>
+        <li><a href="crew-assignment.html" aria-current="page">Crew Assignment</a></li>
+        <li><a href="schedule-view.html">Schedule</a></li>
+        <li><a href="reports-analytics.html">Reports &amp; Analytics</a></li>
+      </ul>
+    </nav>
+    <div>
+      <span>Staff Portal</span>
+      <a href="login.html">Sign out</a>
+    </div>
+  </header>
+
+  <main id="main-content">
+    <nav aria-label="Breadcrumb">
+      <ol>
+        <li><a href="dashboard.html">Dashboard</a></li>
+        <li><a href="crew-management.html">Crew Management</a></li>
+        <li aria-current="page">Crew Assignment</li>
+      </ol>
+    </nav>
+
+    <header>
+      <p>STAFF OPERATIONS / FLIGHT STAFFING</p>
+      <h1>Crew Assignment</h1>
+      <p>Build complete flight teams by matching crew roles, aircraft qualifications, and availability.</p>
+      <p><a href="crew-management.html">Manage crew records</a> | <a href="schedule-view.html">Review crew schedules</a></p>
+    </header>
+
+    <section aria-labelledby="assignment-overview-heading">
+      <h2 id="assignment-overview-heading">Assignment overview</h2>
+      <dl>
+        <div>
+          <dt>Flights awaiting crew</dt>
+          <dd>6</dd>
+        </div>
+        <div>
+          <dt>Fully staffed flights</dt>
+          <dd>18</dd>
+        </div>
+        <div>
+          <dt>Open crew positions</dt>
+          <dd>12</dd>
+        </div>
+        <div>
+          <dt>Conflicts flagged for review</dt>
+          <dd>2</dd>
+        </div>
+      </dl>
+      <p><small>Illustrative figures for the HTML demonstration.</small></p>
+    </section>
+
+    <section aria-labelledby="new-assignment-heading">
+      <h2 id="new-assignment-heading">Create a crew assignment</h2>
+      <form method="get">
+        <fieldset>
+          <legend>Flight details</legend>
+          <div>
+            <label for="flight-number">Flight number</label>
+            <select id="flight-number" name="flightNumber" required>
+              <option value="">Select a flight</option>
+              <option value="ET-302">ET-302 · Addis Ababa to Nairobi</option>
+              <option value="ET-500">ET-500 · Addis Ababa to London</option>
+              <option value="ET-610">ET-610 · Addis Ababa to Dubai</option>
+              <option value="ET-720">ET-720 · Addis Ababa to Djibouti</option>
+            </select>
+          </div>
+          <div>
+            <label for="flight-date">Departure date</label>
+            <input type="date" id="flight-date" name="departureDate" required>
+          </div>
+          <div>
+            <label for="aircraft-type">Aircraft type</label>
+            <select id="aircraft-type" name="aircraftType" required>
+              <option value="">Select aircraft</option>
+              <option value="B737">Boeing 737</option>
+              <option value="B787">Boeing 787</option>
+              <option value="A350">Airbus A350</option>
+            </select>
+          </div>
+          <div>
+            <label for="departure-time">Departure time</label>
+            <input type="time" id="departure-time" name="departureTime" required>
+          </div>
+          <div>
+            <label for="arrival-time">Arrival time</label>
+            <input type="time" id="arrival-time" name="arrivalTime" required>
+          </div>
+        </fieldset>
+
+        <fieldset>
+          <legend>Assign flight crew</legend>
+          <div>
+            <label for="captain">Captain</label>
+            <select id="captain" name="captainId" required>
+              <option value="">Select a qualified captain</option>
+              <option value="CR-1001">CR-1001 · Abel Bekele</option>
+              <option value="CR-1004">CR-1004 · Daniel Girma</option>
+            </select>
+          </div>
+          <div>
+            <label for="first-officer">First Officer</label>
+            <select id="first-officer" name="firstOfficerId" required>
+              <option value="">Select a qualified first officer</option>
+              <option value="CR-1002">CR-1002 · Hana Tadesse</option>
+              <option value="CR-1005">CR-1005 · Samuel Kebede</option>
+            </select>
+          </div>
+          <div>
+            <label for="cabin-crew-one">Cabin Crew Member 1</label>
+            <select id="cabin-crew-one" name="cabinCrewOneId" required>
+              <option value="">Select cabin crew</option>
+              <option value="CR-1003">CR-1003 · Meron Alemu</option>
+              <option value="CR-1006">CR-1006 · Rahel Tesfaye</option>
+              <option value="CR-1007">CR-1007 · Yonas Worku</option>
+            </select>
+          </div>
+          <div>
+            <label for="cabin-crew-two">Cabin Crew Member 2</label>
+            <select id="cabin-crew-two" name="cabinCrewTwoId">
+              <option value="">Select cabin crew</option>
+              <option value="CR-1003">CR-1003 · Meron Alemu</option>
+              <option value="CR-1006">CR-1006 · Rahel Tesfaye</option>
+              <option value="CR-1007">CR-1007 · Yonas Worku</option>
+            </select>
+          </div>
+          <div>
+            <label for="additional-crew">Additional crew member</label>
+            <select id="additional-crew" name="additionalCrewId">
+              <option value="">No additional crew member</option>
+              <option value="CR-1008">CR-1008 · Eden Solomon</option>
+            </select>
+          </div>
+        </fieldset>
+
+        <fieldset>
+          <legend>Assignment notes</legend>
+          <label for="assignment-notes">Operational notes</label>
+          <textarea id="assignment-notes" name="notes" rows="4" placeholder="Add relevant handover or staffing notes"></textarea>
+        </fieldset>
+
+        <button type="submit">Review assignment</button>
+        <button type="reset">Clear selection</button>
+      </form>
+    </section>
+
+    <section aria-labelledby="assignment-checks-heading">
+      <h2 id="assignment-checks-heading">Checks required before confirmation</h2>
+      <ul>
+        <li>Every assigned crew member must be available for the selected flight date and time.</li>
+        <li>Pilot and cabin crew qualifications must match the aircraft and assigned role.</li>
+        <li>License and medical clearance dates must be valid for the duty period.</li>
+        <li>Assigned crew must not have overlapping flights or conflicting duty periods.</li>
+        <li>Required rest periods and applicable duty-time limits must be respected.</li>
+      </ul>
+      <p><strong>HTML phase note:</strong> These are the business rules the later crew controller must validate. This page currently provides the form structure only; it does not yet perform automatic conflict or qualification checks.</p>
+    </section>
+
+    <section aria-labelledby="current-assignments-heading">
+      <h2 id="current-assignments-heading">Current flight assignments</h2>
+      <table>
+        <caption>Sample crew assignments for upcoming flights</caption>
+        <thead>
+          <tr>
+            <th scope="col">Flight</th>
+            <th scope="col">Route</th>
+            <th scope="col">Departure</th>
+            <th scope="col">Aircraft</th>
+            <th scope="col">Captain</th>
+            <th scope="col">First Officer</th>
+            <th scope="col">Cabin crew</th>
+            <th scope="col">Staffing status</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th scope="row">ET-302</th>
+            <td>ADD – NBO</td>
+            <td><time datetime="2026-11-08T08:30">08 Nov, 08:30</time></td>
+            <td>Boeing 737</td>
+            <td>Abel Bekele</td>
+            <td>Hana Tadesse</td>
+            <td>Meron Alemu, Rahel Tesfaye</td>
+            <td>Fully staffed</td>
+          </tr>
+          <tr>
+            <th scope="row">ET-500</th>
+            <td>ADD – LHR</td>
+            <td><time datetime="2026-11-08T10:15">08 Nov, 10:15</time></td>
+            <td>Boeing 787</td>
+            <td>Samuel Kebede</td>
+            <td>Unassigned</td>
+            <td>3 of 5 assigned</td>
+            <td>Needs crew</td>
+          </tr>
+          <tr>
+            <th scope="row">ET-610</th>
+            <td>ADD – DXB</td>
+            <td><time datetime="2026-11-08T13:00">08 Nov, 13:00</time></td>
+            <td>Airbus A350</td>
+            <td>Daniel Girma</td>
+            <td>Unassigned</td>
+            <td>Not assigned</td>
+            <td>Needs crew</td>
+          </tr>
+        </tbody>
+      </table>
+      <p><a href="schedule-view.html">Open the full crew schedule</a></p>
+    </section>
+  </main>
+
+  <footer>
+    <p><strong>Ethiopian Wings</strong> · Staff Operations</p>
+    <p>Airline Operations &amp; Booking Management System · Academic project demonstration</p>
+  </footer>
+</body>
+</html>

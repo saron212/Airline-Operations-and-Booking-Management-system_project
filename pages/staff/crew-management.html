@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Manage airline crew profiles, qualifications, licenses, and availability.">
+  <title>Crew Management | Ethiopian Wings Staff Portal</title>
+</head>
+<body>
+  <a href="#main-content">Skip to main content</a>
+
+  <header>
+    <div>
+      <a href="../../index.html" aria-label="Ethiopian Wings home">
+        <span aria-hidden="true">✈</span>
+        <span><strong>Ethiopian Wings</strong><small> STAFF OPERATIONS</small></span>
+      </a>
+    </div>
+
+    <nav aria-label="Staff navigation">
+      <ul>
+        <li><a href="dashboard.html">Dashboard</a></li>
+        <li><a href="flights-management.html">Flight Management</a></li>
+        <li><a href="crew-management.html" aria-current="page">Crew Management</a></li>
+        <li><a href="crew-assignment.html">Crew Assignment</a></li>
+        <li><a href="schedule-view.html">Schedule</a></li>
+        <li><a href="reports-analytics.html">Reports &amp; Analytics</a></li>
+      </ul>
+    </nav>
+
+    <div>
+      <span>Staff Portal</span>
+      <a href="login.html">Sign out</a>
+    </div>
+  </header>
+
+  <main id="main-content">
+    <nav aria-label="Breadcrumb">
+      <ol>
+        <li><a href="dashboard.html">Dashboard</a></li>
+        <li aria-current="page">Crew Management</li>
+      </ol>
+    </nav>
+
+    <header>
+      <p>STAFF OPERATIONS / PEOPLE</p>
+      <h1>Crew Management</h1>
+      <p>Maintain crew records, monitor qualifications, and keep license information up to date.</p>
+      <p><a href="crew-assignment.html">Go to crew assignment</a> | <a href="schedule-view.html">View crew schedule</a></p>
+    </header>
+
+    <section aria-labelledby="crew-overview-heading">
+      <h2 id="crew-overview-heading">Crew overview</h2>
+      <dl>
+        <div>
+          <dt>Total crew members</dt>
+          <dd>128</dd>
+        </div>
+        <div>
+          <dt>Available for assignment</dt>
+          <dd>94</dd>
+        </div>
+        <div>
+          <dt>On active duty</dt>
+          <dd>26</dd>
+        </div>
+        <div>
+          <dt>Licenses requiring attention</dt>
+          <dd>8</dd>
+        </div>
+      </dl>
+      <p><small>Illustrative figures for the HTML demonstration. Live totals will be connected during the JavaScript phase.</small></p>
+    </section>
+
+    <section aria-labelledby="crew-search-heading">
+      <h2 id="crew-search-heading">Find crew members</h2>
+      <form method="get">
+        <div>
+          <label for="crew-search">Name or crew ID</label>
+          <input type="search" id="crew-search" name="q" placeholder="e.g. CR-1001 or crew name">
+        </div>
+        <div>
+          <label for="filter-role">Crew role</label>
+          <select id="filter-role" name="role">
+            <option value="">All roles</option>
+            <option value="captain">Captain</option>
+            <option value="first-officer">First Officer</option>
+            <option value="cabin-crew">Cabin Crew</option>
+            <option value="flight-engineer">Flight Engineer</option>
+          </select>
+        </div>
+        <div>
+          <label for="filter-availability">Availability</label>
+          <select id="filter-availability" name="availability">
+            <option value="">All statuses</option>
+            <option value="available">Available</option>
+            <option value="assigned">Assigned</option>
+            <option value="leave">On Leave</option>
+            <option value="inactive">Inactive</option>
+          </select>
+        </div>
+        <div>
+          <label for="filter-base">Home base</label>
+          <select id="filter-base" name="base">
+            <option value="">All bases</option>
+            <option value="ADD">Addis Ababa (ADD)</option>
+            <option value="NBO">Nairobi (NBO)</option>
+            <option value="JIB">Djibouti (JIB)</option>
+          </select>
+        </div>
+        <button type="submit">Search crew</button>
+        <a href="crew-management.html">Clear filters</a>
+      </form>
+    </section>
+
+    <section aria-labelledby="add-crew-heading">
+      <h2 id="add-crew-heading">Register a crew member</h2>
+      <p>Enter the crew member's details and operational qualifications.</p>
+      <form method="get">
+        <fieldset>
+          <legend>Personal and employment information</legend>
+          <div>
+            <label for="crew-id">Crew ID</label>
+            <input type="text" id="crew-id" name="crewId" placeholder="CR-1009" required>
+          </div>
+          <div>
+            <label for="crew-name">Full name</label>
+            <input type="text" id="crew-name" name="fullName" autocomplete="name" required>
+          </div>
+          <div>
+            <label for="crew-email">Email address</label>
+            <input type="email" id="crew-email" name="email" autocomplete="email" required>
+          </div>
+          <div>
+            <label for="crew-phone">Phone number</label>
+            <input type="tel" id="crew-phone" name="phone" autocomplete="tel">
+          </div>
+          <div>
+            <label for="crew-role">Crew role</label>
+            <select id="crew-role" name="role" required>
+              <option value="">Select a role</option>
+              <option value="captain">Captain</option>
+              <option value="first-officer">First Officer</option>
+              <option value="cabin-crew">Cabin Crew</option>
+              <option value="flight-engineer">Flight Engineer</option>
+            </select>
+          </div>
+          <div>
+            <label for="crew-base">Home base</label>
+            <select id="crew-base" name="base" required>
+              <option value="">Select a base</option>
+              <option value="ADD">Addis Ababa (ADD)</option>
+              <option value="NBO">Nairobi (NBO)</option>
+              <option value="JIB">Djibouti (JIB)</option>
+            </select>
+          </div>
+        </fieldset>
+
+        <fieldset>
+          <legend>License and qualifications</legend>
+          <div>
+            <label for="license-number">License or certificate number</label>
+            <input type="text" id="license-number" name="licenseNumber" required>
+          </div>
+          <div>
+            <label for="license-type">License type</label>
+            <select id="license-type" name="licenseType" required>
+              <option value="">Select license type</option>
+              <option value="atpl">Airline Transport Pilot License (ATPL)</option>
+              <option value="cpl">Commercial Pilot License (CPL)</option>
+              <option value="cabin-crew">Cabin Crew Certificate</option>
+              <option value="engineering">Aircraft Maintenance / Engineering License</option>
+            </select>
+          </div>
+          <div>
+            <label for="license-expiry">License expiry date</label>
+            <input type="date" id="license-expiry" name="licenseExpiry" required>
+          </div>
+          <div>
+            <label for="medical-expiry">Medical clearance expiry date</label>
+            <input type="date" id="medical-expiry" name="medicalExpiry">
+          </div>
+          <fieldset>
+            <legend>Aircraft qualifications</legend>
+            <label><input type="checkbox" name="aircraftQualifications" value="B737"> Boeing 737</label>
+            <label><input type="checkbox" name="aircraftQualifications" value="B787"> Boeing 787</label>
+            <label><input type="checkbox" name="aircraftQualifications" value="A350"> Airbus A350</label>
+          </fieldset>
+          <div>
+            <label for="crew-status">Employment status</label>
+            <select id="crew-status" name="status" required>
+              <option value="active">Active</option>
+              <option value="on-leave">On Leave</option>
+              <option value="inactive">Inactive</option>
+            </select>
+          </div>
+        </fieldset>
+
+        <button type="submit">Save crew record</button>
+        <button type="reset">Clear form</button>
+      </form>
+    </section>
+
+    <section aria-labelledby="crew-roster-heading">
+      <h2 id="crew-roster-heading">Crew roster</h2>
+      <p>Sample records show the information that will appear in the crew directory.</p>
+      <div>
+        <table>
+          <caption>Registered crew members and current qualification status</caption>
+          <thead>
+            <tr>
+              <th scope="col">Crew ID</th>
+              <th scope="col">Crew member</th>
+              <th scope="col">Role</th>
+              <th scope="col">License expiry</th>
+              <th scope="col">Aircraft qualification</th>
+              <th scope="col">Home base</th>
+              <th scope="col">Availability</th>
+              <th scope="col">Record</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr id="crew-1001">
+              <th scope="row">CR-1001</th>
+              <td>Abel Bekele</td>
+              <td>Captain</td>
+              <td><time datetime="2027-08-14">14 Aug 2027</time></td>
+              <td>Boeing 787</td>
+              <td>Addis Ababa</td>
+              <td>Available</td>
+              <td><a href="#crew-1001">View details</a></td>
+            </tr>
+            <tr id="crew-1002">
+              <th scope="row">CR-1002</th>
+              <td>Hana Tadesse</td>
+              <td>First Officer</td>
+              <td><time datetime="2027-03-22">22 Mar 2027</time></td>
+              <td>Boeing 787, Boeing 737</td>
+              <td>Addis Ababa</td>
+              <td>Assigned</td>
+              <td><a href="#crew-1002">View details</a></td>
+            </tr>
+            <tr id="crew-1003">
+              <th scope="row">CR-1003</th>
+              <td>Meron Alemu</td>
+              <td>Cabin Crew</td>
+              <td><time datetime="2026-12-10">10 Dec 2026</time></td>
+              <td>Boeing 787</td>
+              <td>Addis Ababa</td>
+              <td>Available</td>
+              <td><a href="#crew-1003">View details</a></td>
+            </tr>
+            <tr id="crew-1004">
+              <th scope="row">CR-1004</th>
+              <td>Daniel Girma</td>
+              <td>Captain</td>
+              <td><time datetime="2026-11-28">28 Nov 2026</time></td>
+              <td>Airbus A350</td>
+              <td>Nairobi</td>
+              <td>On Leave</td>
+              <td><a href="#crew-1004">View details</a></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section id="qualification-alerts" aria-labelledby="qualification-alerts-heading">
+      <h2 id="qualification-alerts-heading">Qualification reminders</h2>
+      <ul>
+        <li>Review licenses approaching their expiry date before assigning crew to a flight.</li>
+        <li>Confirm that aircraft type qualifications match the aircraft scheduled for the flight.</li>
+        <li>Check that required medical clearances and operational certificates remain valid.</li>
+      </ul>
+      <p><a href="crew-assignment.html">Continue to crew assignment</a></p>
+    </section>
+  </main>
+
+  <footer>
+    <p><strong>Ethiopian Wings</strong> · Staff Operations</p>
+    <p>Airline Operations &amp; Booking Management System · Academic project demonstration</p>
+  </footer>
+</body>
+</html>

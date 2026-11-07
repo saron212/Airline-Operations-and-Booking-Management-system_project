@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Review airline crew utilization, staffing coverage, qualifications, and operational reports.">
+  <title>Crew Reports &amp; Analytics | Ethiopian Wings Staff Portal</title>
+</head>
+<body>
+  <a href="#main-content">Skip to main content</a>
+
+  <header>
+    <div>
+      <a href="../../index.html" aria-label="Ethiopian Wings home">
+        <span aria-hidden="true">✈</span>
+        <span><strong>Ethiopian Wings</strong><small> STAFF OPERATIONS</small></span>
+      </a>
+    </div>
+    <nav aria-label="Staff navigation">
+      <ul>
+        <li><a href="dashboard.html">Dashboard</a></li>
+        <li><a href="flights-management.html">Flight Management</a></li>
+        <li><a href="crew-management.html">Crew Management</a></li>
+        <li><a href="crew-assignment.html">Crew Assignment</a></li>
+        <li><a href="schedule-view.html">Schedule</a></li>
+        <li><a href="reports-analytics.html" aria-current="page">Reports &amp; Analytics</a></li>
+      </ul>
+    </nav>
+    <div>
+      <span>Staff Portal</span>
+      <a href="login.html">Sign out</a>
+    </div>
+  </header>
+
+  <main id="main-content">
+    <nav aria-label="Breadcrumb">
+      <ol>
+        <li><a href="dashboard.html">Dashboard</a></li>
+        <li aria-current="page">Reports &amp; Analytics</li>
+      </ol>
+    </nav>
+
+    <header>
+      <p>STAFF OPERATIONS / PERFORMANCE</p>
+      <h1>Crew Reports &amp; Analytics</h1>
+      <p>Understand staffing coverage, crew utilization, availability, and qualification status.</p>
+      <p><a href="crew-management.html">Crew directory</a> | <a href="schedule-view.html">Crew schedule</a></p>
+    </header>
+
+    <section aria-labelledby="report-filters-heading">
+      <h2 id="report-filters-heading">Report filters</h2>
+      <form method="get">
+        <div>
+          <label for="report-start-date">Start date</label>
+          <input type="date" id="report-start-date" name="startDate" value="2026-11-01" required>
+        </div>
+        <div>
+          <label for="report-end-date">End date</label>
+          <input type="date" id="report-end-date" name="endDate" value="2026-11-30" required>
+        </div>
+        <div>
+          <label for="report-type">Report type</label>
+          <select id="report-type" name="reportType">
+            <option value="overview">Crew overview</option>
+            <option value="utilization">Crew utilization</option>
+            <option value="availability">Crew availability</option>
+            <option value="qualifications">License and qualification status</option>
+            <option value="assignments">Flight assignment coverage</option>
+          </select>
+        </div>
+        <div>
+          <label for="report-base">Home base</label>
+          <select id="report-base" name="base">
+            <option value="">All bases</option>
+            <option value="ADD">Addis Ababa (ADD)</option>
+            <option value="NBO">Nairobi (NBO)</option>
+            <option value="JIB">Djibouti (JIB)</option>
+          </select>
+        </div>
+        <div>
+          <label for="report-role">Crew role</label>
+          <select id="report-role" name="role">
+            <option value="">All roles</option>
+            <option value="captain">Captain</option>
+            <option value="first-officer">First Officer</option>
+            <option value="cabin-crew">Cabin Crew</option>
+            <option value="flight-engineer">Flight Engineer</option>
+          </select>
+        </div>
+        <button type="submit">Generate report</button>
+        <a href="reports-analytics.html">Reset filters</a>
+      </form>
+    </section>
+
+    <section aria-labelledby="key-metrics-heading">
+      <h2 id="key-metrics-heading">Key staffing indicators</h2>
+      <dl>
+        <div>
+          <dt>Total registered crew</dt>
+          <dd>128</dd>
+        </div>
+        <div>
+          <dt>Average crew utilization</dt>
+          <dd>78%</dd>
+        </div>
+        <div>
+          <dt>Flights fully staffed</dt>
+          <dd>92%</dd>
+        </div>
+        <div>
+          <dt>Available crew</dt>
+          <dd>94</dd>
+        </div>
+        <div>
+          <dt>Qualifications expiring soon</dt>
+          <dd>8</dd>
+        </div>
+        <div>
+          <dt>Schedule conflicts for review</dt>
+          <dd>2</dd>
+        </div>
+      </dl>
+      <p><small>Demonstration values only. Actual metrics will be calculated from crew, flight, and assignment records in the JavaScript phase.</small></p>
+    </section>
+
+    <section aria-labelledby="utilization-heading">
+      <h2 id="utilization-heading">Crew utilization by role</h2>
+      <p>Illustrative share of available duty capacity used during the selected reporting period.</p>
+      <table>
+        <caption>Crew utilization summary</caption>
+        <thead>
+          <tr>
+            <th scope="col">Crew role</th>
+            <th scope="col">Total crew</th>
+            <th scope="col">Assigned</th>
+            <th scope="col">Available</th>
+            <th scope="col">Utilization</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th scope="row">Captain</th>
+            <td>24</td>
+            <td>19</td>
+            <td>5</td>
+            <td>79%</td>
+          </tr>
+          <tr>
+            <th scope="row">First Officer</th>
+            <td>24</td>
+            <td>18</td>
+            <td>6</td>
+            <td>75%</td>
+          </tr>
+          <tr>
+            <th scope="row">Cabin Crew</th>
+            <td>72</td>
+            <td>58</td>
+            <td>14</td>
+            <td>81%</td>
+          </tr>
+          <tr>
+            <th scope="row">Flight Engineer</th>
+            <td>8</td>
+            <td>5</td>
+            <td>3</td>
+            <td>63%</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section aria-labelledby="coverage-heading">
+      <h2 id="coverage-heading">Flight staffing coverage</h2>
+      <table>
+        <caption>Staffing status by flight for the selected period</caption>
+        <thead>
+          <tr>
+            <th scope="col">Flight</th>
+            <th scope="col">Route</th>
+            <th scope="col">Required crew</th>
+            <th scope="col">Assigned crew</th>
+            <th scope="col">Open positions</th>
+            <th scope="col">Coverage</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th scope="row">ET-302</th>
+            <td>ADD – NBO</td>
+            <td>5</td>
+            <td>5</td>
+            <td>0</td>
+            <td>100%</td>
+          </tr>
+          <tr>
+            <th scope="row">ET-500</th>
+            <td>ADD – LHR</td>
+            <td>7</td>
+            <td>5</td>
+            <td>2</td>
+            <td>71%</td>
+          </tr>
+          <tr>
+            <th scope="row">ET-610</th>
+            <td>ADD – DXB</td>
+            <td>6</td>
+            <td>4</td>
+            <td>2</td>
+            <td>67%</td>
+          </tr>
+        </tbody>
+      </table>
+      <p><a href="crew-assignment.html">Resolve open crew positions</a></p>
+    </section>
+
+    <section aria-labelledby="qualification-report-heading">
+      <h2 id="qualification-report-heading">License and qualification alerts</h2>
+      <table>
+        <caption>Crew qualifications requiring attention</caption>
+        <thead>
+          <tr>
+            <th scope="col">Crew ID</th>
+            <th scope="col">Crew member</th>
+            <th scope="col">Qualification</th>
+            <th scope="col">Expiry date</th>
+            <th scope="col">Alert</th>
+            <th scope="col">Next step</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th scope="row">CR-1003</th>
+            <td>Meron Alemu</td>
+            <td>Cabin Crew Certificate</td>
+            <td><time datetime="2026-12-10">10 Dec 2026</time></td>
+            <td>Expiring soon</td>
+            <td>Schedule renewal review</td>
+          </tr>
+          <tr>
+            <th scope="row">CR-1012</th>
+            <td>Fikru Desta</td>
+            <td>Medical clearance</td>
+            <td><time datetime="2026-11-20">20 Nov 2026</time></td>
+            <td>Expiring soon</td>
+            <td>Confirm medical review</td>
+          </tr>
+          <tr>
+            <th scope="row">CR-1021</th>
+            <td>Selamawit Bekele</td>
+            <td>Boeing 787 type rating</td>
+            <td><time datetime="2026-11-15">15 Nov 2026</time></td>
+            <td>Review required</td>
+            <td>Verify qualification status</td>
+          </tr>
+        </tbody>
+      </table>
+      <p><a href="crew-management.html">Open crew management</a></p>
+    </section>
+
+    <section aria-labelledby="report-export-heading">
+      <h2 id="report-export-heading">Report output</h2>
+      <p>The reporting controller will later calculate results from stored operational data and provide export options.</p>
+      <form method="get">
+        <fieldset>
+          <legend>Choose report format</legend>
+          <label><input type="radio" name="format" value="csv" checked> CSV spreadsheet</label>
+          <label><input type="radio" name="format" value="pdf"> PDF document</label>
+        </fieldset>
+        <button type="submit">Prepare selected report</button>
+      </form>
+      <p><small>Export is a planned integration point and is not active in this HTML-only version.</small></p>
+    </section>
+  </main>
+
+  <footer>
+    <p><strong>Ethiopian Wings</strong> · Staff Operations</p>
+    <p>Airline Operations &amp; Booking Management System · Academic project demonstration</p>
+  </footer>
+</body>
+</html>

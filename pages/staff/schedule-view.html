@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="View airline crew duty schedules, flight assignments, and availability.">
+  <title>Crew Schedule | Ethiopian Wings Staff Portal</title>
+</head>
+<body>
+  <a href="#main-content">Skip to main content</a>
+
+  <header>
+    <div>
+      <a href="../../index.html" aria-label="Ethiopian Wings home">
+        <span aria-hidden="true">✈</span>
+        <span><strong>Ethiopian Wings</strong><small> STAFF OPERATIONS</small></span>
+      </a>
+    </div>
+    <nav aria-label="Staff navigation">
+      <ul>
+        <li><a href="dashboard.html">Dashboard</a></li>
+        <li><a href="flights-management.html">Flight Management</a></li>
+        <li><a href="crew-management.html">Crew Management</a></li>
+        <li><a href="crew-assignment.html">Crew Assignment</a></li>
+        <li><a href="schedule-view.html" aria-current="page">Schedule</a></li>
+        <li><a href="reports-analytics.html">Reports &amp; Analytics</a></li>
+      </ul>
+    </nav>
+    <div>
+      <span>Staff Portal</span>
+      <a href="login.html">Sign out</a>
+    </div>
+  </header>
+
+  <main id="main-content">
+    <nav aria-label="Breadcrumb">
+      <ol>
+        <li><a href="dashboard.html">Dashboard</a></li>
+        <li aria-current="page">Crew Schedule</li>
+      </ol>
+    </nav>
+
+    <header>
+      <p>STAFF OPERATIONS / DUTY PLANNING</p>
+      <h1>Crew Schedule</h1>
+      <p>Review crew duty periods, flight assignments, and availability across the operation.</p>
+      <p><a href="crew-assignment.html">Create an assignment</a> | <a href="reports-analytics.html">View staffing analytics</a></p>
+    </header>
+
+    <section aria-labelledby="schedule-summary-heading">
+      <h2 id="schedule-summary-heading">Schedule summary</h2>
+      <dl>
+        <div>
+          <dt>Scheduled crew duties</dt>
+          <dd>86</dd>
+        </div>
+        <div>
+          <dt>Crew available</dt>
+          <dd>94</dd>
+        </div>
+        <div>
+          <dt>Rest-period reviews</dt>
+          <dd>3</dd>
+        </div>
+        <div>
+          <dt>Unfilled flight positions</dt>
+          <dd>12</dd>
+        </div>
+      </dl>
+      <p><small>Illustrative figures for the HTML demonstration.</small></p>
+    </section>
+
+    <section aria-labelledby="schedule-filters-heading">
+      <h2 id="schedule-filters-heading">Find a schedule</h2>
+      <form method="get">
+        <div>
+          <label for="schedule-date">Week starting</label>
+          <input type="date" id="schedule-date" name="weekStarting" value="2026-11-08">
+        </div>
+        <div>
+          <label for="schedule-view-type">Display</label>
+          <select id="schedule-view-type" name="view">
+            <option value="week">Weekly view</option>
+            <option value="day">Daily view</option>
+            <option value="list">List view</option>
+          </select>
+        </div>
+        <div>
+          <label for="schedule-base">Home base</label>
+          <select id="schedule-base" name="base">
+            <option value="">All bases</option>
+            <option value="ADD">Addis Ababa (ADD)</option>
+            <option value="NBO">Nairobi (NBO)</option>
+            <option value="JIB">Djibouti (JIB)</option>
+          </select>
+        </div>
+        <div>
+          <label for="schedule-crew">Crew member</label>
+          <select id="schedule-crew" name="crewId">
+            <option value="">All crew members</option>
+            <option value="CR-1001">CR-1001 · Abel Bekele</option>
+            <option value="CR-1002">CR-1002 · Hana Tadesse</option>
+            <option value="CR-1003">CR-1003 · Meron Alemu</option>
+            <option value="CR-1004">CR-1004 · Daniel Girma</option>
+          </select>
+        </div>
+        <button type="submit">Apply filters</button>
+        <a href="schedule-view.html">Reset</a>
+      </form>
+    </section>
+
+    <section aria-labelledby="weekly-schedule-heading">
+      <h2 id="weekly-schedule-heading">Weekly crew schedule</h2>
+      <p>Week of <time datetime="2026-11-08">08 November 2026</time> – <time datetime="2026-11-14">14 November 2026</time></p>
+      <table>
+        <caption>Illustrative weekly crew duty overview</caption>
+        <thead>
+          <tr>
+            <th scope="col">Crew member</th>
+            <th scope="col">Sun 08</th>
+            <th scope="col">Mon 09</th>
+            <th scope="col">Tue 10</th>
+            <th scope="col">Wed 11</th>
+            <th scope="col">Thu 12</th>
+            <th scope="col">Fri 13</th>
+            <th scope="col">Sat 14</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th scope="row">Abel Bekele · Captain</th>
+            <td>ET-302<br><small>08:30–10:00</small></td>
+            <td>Rest</td>
+            <td>ET-410<br><small>09:00–12:00</small></td>
+            <td>Rest</td>
+            <td>ET-520<br><small>07:00–13:00</small></td>
+            <td>Rest</td>
+            <td>Available</td>
+          </tr>
+          <tr>
+            <th scope="row">Hana Tadesse · First Officer</th>
+            <td>ET-302<br><small>08:30–10:00</small></td>
+            <td>Rest</td>
+            <td>Available</td>
+            <td>ET-610<br><small>13:00–16:00</small></td>
+            <td>Rest</td>
+            <td>ET-720<br><small>10:00–12:00</small></td>
+            <td>Rest</td>
+          </tr>
+          <tr>
+            <th scope="row">Meron Alemu · Cabin Crew</th>
+            <td>ET-302<br><small>08:30–10:00</small></td>
+            <td>Available</td>
+            <td>ET-410<br><small>09:00–12:00</small></td>
+            <td>Rest</td>
+            <td>Available</td>
+            <td>ET-720<br><small>10:00–12:00</small></td>
+            <td>Rest</td>
+          </tr>
+          <tr>
+            <th scope="row">Daniel Girma · Captain</th>
+            <td>On Leave</td>
+            <td>On Leave</td>
+            <td>On Leave</td>
+            <td>Available</td>
+            <td>ET-610<br><small>13:00–16:00</small></td>
+            <td>Rest</td>
+            <td>Available</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section aria-labelledby="duty-list-heading">
+      <h2 id="duty-list-heading">Detailed duty list</h2>
+      <table>
+        <caption>Upcoming crew duties and flight information</caption>
+        <thead>
+          <tr>
+            <th scope="col">Date</th>
+            <th scope="col">Crew member</th>
+            <th scope="col">Flight</th>
+            <th scope="col">Route</th>
+            <th scope="col">Report time</th>
+            <th scope="col">Scheduled duty</th>
+            <th scope="col">Duty status</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><time datetime="2026-11-08">08 Nov 2026</time></td>
+            <td>Abel Bekele</td>
+            <td>ET-302</td>
+            <td>ADD – NBO</td>
+            <td><time datetime="2026-11-08T07:00">07:00</time></td>
+            <td>08:30–10:00</td>
+            <td>Assigned</td>
+          </tr>
+          <tr>
+            <td><time datetime="2026-11-08">08 Nov 2026</time></td>
+            <td>Hana Tadesse</td>
+            <td>ET-302</td>
+            <td>ADD – NBO</td>
+            <td><time datetime="2026-11-08T07:00">07:00</time></td>
+            <td>08:30–10:00</td>
+            <td>Assigned</td>
+          </tr>
+          <tr>
+            <td><time datetime="2026-11-10">10 Nov 2026</time></td>
+            <td>Meron Alemu</td>
+            <td>ET-410</td>
+            <td>ADD – BJR</td>
+            <td><time datetime="2026-11-10T07:30">07:30</time></td>
+            <td>09:00–12:00</td>
+            <td>Assigned</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section aria-labelledby="schedule-notes-heading">
+      <h2 id="schedule-notes-heading">Schedule review reminders</h2>
+      <ul>
+        <li>Check the required rest period between consecutive duty assignments.</li>
+        <li>Review overlapping flight times and report-time requirements.</li>
+        <li>Confirm crew availability and aircraft qualifications before publishing a schedule.</li>
+        <li>Review leave and inactive status before assigning any duty.</li>
+      </ul>
+      <p><a href="crew-assignment.html">Review crew assignments</a> | <a href="reports-analytics.html">Open schedule reports</a></p>
+    </section>
+  </main>
+
+  <footer>
+    <p><strong>Ethiopian Wings</strong> · Staff Operations</p>
+    <p>Airline Operations &amp; Booking Management System · Academic project demonstration</p>
+  </footer>
+</body>
+</html>
