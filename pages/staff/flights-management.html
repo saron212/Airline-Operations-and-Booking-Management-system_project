@@ -1,0 +1,282 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Manage airline flights and schedules">
+    <title>Flight Management | Airline Operations System</title>
+</head>
+
+<body>
+
+    <!-- Header and Navigation -->
+    <header>
+        <h1>Airline Operations System</h1>
+        <p>Flight Management</p>
+
+        <nav aria-label="Staff navigation">
+            <a href="dashboard.html">Dashboard</a>
+            <a href="flights-management.html">Flight Management</a>
+            <a href="crew-management.html">Crew Management</a>
+            <a href="schedule-view.html">Schedules</a>
+            <a href="reports-analytics.html">Reports</a>
+        </nav>
+    </header>
+
+    <main>
+
+        <!-- Page Introduction -->
+        <section aria-labelledby="page-heading">
+            <h2 id="page-heading">Flight Management</h2>
+            <p>Add, view, update, search, and manage airline flights.</p>
+        </section>
+
+        <!-- Flight Statistics -->
+        <section aria-labelledby="flight-statistics-heading">
+            <h2 id="flight-statistics-heading">Flight Statistics</h2>
+
+            <article>
+                <h3>Total Flights</h3>
+                <p id="total-flights">0</p>
+            </article>
+
+            <article>
+                <h3>Scheduled Flights</h3>
+                <p id="scheduled-flights">0</p>
+            </article>
+
+            <article>
+                <h3>Delayed Flights</h3>
+                <p id="delayed-flights">0</p>
+            </article>
+
+            <article>
+                <h3>Cancelled Flights</h3>
+                <p id="cancelled-flights">0</p>
+            </article>
+        </section>
+
+        <!-- Add New Flight -->
+        <section aria-labelledby="add-flight-heading">
+            <h2 id="add-flight-heading">Add New Flight</h2>
+
+            <form id="add-flight-form">
+
+                <div>
+                    <label for="flight-number">Flight Number</label>
+                    <input
+                        type="text"
+                        id="flight-number"
+                        name="flight-number"
+                        placeholder="Example: ET302"
+                        required
+                    >
+                </div>
+
+                <div>
+                    <label for="departure-city">Departure City</label>
+                    <input
+                        type="text"
+                        id="departure-city"
+                        name="departure-city"
+                        placeholder="Enter departure city"
+                        required
+                    >
+                </div>
+
+                <div>
+                    <label for="destination">Destination</label>
+                    <input
+                        type="text"
+                        id="destination"
+                        name="destination"
+                        placeholder="Enter destination"
+                        required
+                    >
+                </div>
+
+                <div>
+                    <label for="departure-date">Departure Date</label>
+                    <input
+                        type="date"
+                        id="departure-date"
+                        name="departure-date"
+                        required
+                    >
+                </div>
+
+                <div>
+                    <label for="departure-time">Departure Time</label>
+                    <input
+                        type="time"
+                        id="departure-time"
+                        name="departure-time"
+                        required
+                    >
+                </div>
+
+                <div>
+                    <label for="arrival-date">Arrival Date</label>
+                    <input
+                        type="date"
+                        id="arrival-date"
+                        name="arrival-date"
+                        required
+                    >
+                </div>
+
+                <div>
+                    <label for="arrival-time">Arrival Time</label>
+                    <input
+                        type="time"
+                        id="arrival-time"
+                        name="arrival-time"
+                        required
+                    >
+                </div>
+
+                <div>
+                    <label for="aircraft">Aircraft</label>
+                    <input
+                        type="text"
+                        id="aircraft"
+                        name="aircraft"
+                        placeholder="Enter aircraft type"
+                        required
+                    >
+                </div>
+
+                <div>
+                    <label for="flight-status">Flight Status</label>
+                    <select
+                        id="flight-status"
+                        name="flight-status"
+                        required
+                    >
+                        <option value="">Select status</option>
+                        <option value="Scheduled">Scheduled</option>
+                        <option value="On Time">On Time</option>
+                        <option value="Delayed">Delayed</option>
+                        <option value="In Progress">In Progress</option>
+                        <option value="Completed">Completed</option>
+                        <option value="Cancelled">Cancelled</option>
+                    </select>
+                </div>
+
+                <button type="submit">Add Flight</button>
+
+            </form>
+        </section>
+
+        <!-- Search and Filter Flights -->
+        <section aria-labelledby="search-flights-heading">
+            <h2 id="search-flights-heading">Search and Filter Flights</h2>
+
+            <div>
+                <label for="flight-search">Search Flights</label>
+                <input
+                    type="search"
+                    id="flight-search"
+                    name="flight-search"
+                    placeholder="Search by flight number or destination"
+                >
+            </div>
+
+            <div>
+                <label for="status-filter">Filter by Status</label>
+                <select id="status-filter" name="status-filter">
+                    <option value="">All Flights</option>
+                    <option value="Scheduled">Scheduled</option>
+                    <option value="On Time">On Time</option>
+                    <option value="Delayed">Delayed</option>
+                    <option value="In Progress">In Progress</option>
+                    <option value="Completed">Completed</option>
+                    <option value="Cancelled">Cancelled</option>
+                </select>
+            </div>
+
+            <button type="button" id="search-button">Search</button>
+            <button type="button" id="reset-button">Reset</button>
+        </section>
+
+        <!-- All Flights Table -->
+        <section aria-labelledby="all-flights-heading">
+            <h2 id="all-flights-heading">All Flights</h2>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>Flight Number</th>
+                        <th>Departure</th>
+                        <th>Destination</th>
+                        <th>Departure Date</th>
+                        <th>Departure Time</th>
+                        <th>Arrival Time</th>
+                        <th>Aircraft</th>
+                        <th>Status</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+
+                <tbody id="flights-table-body">
+
+                    <tr>
+                        <td>ET302</td>
+                        <td>Addis Ababa</td>
+                        <td>Nairobi</td>
+                        <td>2026-11-10</td>
+                        <td>08:30 AM</td>
+                        <td>10:45 AM</td>
+                        <td>Boeing 737</td>
+                        <td>Scheduled</td>
+                        <td>
+                            <button type="button" class="edit-flight">
+                                Edit
+                            </button>
+
+                            <button type="button" class="delete-flight">
+                                Delete
+                            </button>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>ET611</td>
+                        <td>Addis Ababa</td>
+                        <td>Dubai</td>
+                        <td>2026-11-11</td>
+                        <td>10:45 AM</td>
+                        <td>02:00 PM</td>
+                        <td>Boeing 787</td>
+                        <td>Delayed</td>
+                        <td>
+                            <button type="button" class="edit-flight">
+                                Edit
+                            </button>
+
+                            <button type="button" class="delete-flight">
+                                Delete
+                            </button>
+                        </td>
+                    </tr>
+
+                </tbody>
+            </table>
+        </section>
+
+        <!-- Empty Table Message -->
+        <section id="no-flights-message" hidden>
+            <p>No flights found.</p>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2026 Airline Operations System. All rights reserved.</p>
+    </footer>
+
+</body>
+</html>
