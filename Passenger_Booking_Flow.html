@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ethiopian Wings | Flight Booking</title>
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body data-page="passenger">
+  <header class="topbar">
+    <a class="brand" href="index.html"><span class="brand-mark">✈</span><span><strong>Ethiopian</strong><small>WINGS OF AFRICA</small></span></a>
+    <button class="menu-toggle" id="menuToggle" aria-label="Open menu">☰</button>
+    <nav id="mainNav">
+      <a href="../index.html">Project Home</a>
+      <a class="active" href="#search">Passenger Booking</a>
+      <a href="#my-bookings">My Bookings</a>
+      <a href="../staff.html">Staff Portal</a>
+    </nav>
+    <a class="nav-cta" href="#search">Book a Flight <span>↗</span></a>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="hero-shade"></div>
+      <div class="hero-content">
+        <div class="eyebrow"><span></span> THE NEW SPIRIT OF AFRICA</div>
+        <h1>Your journey.<br><em>Our world.</em></h1>
+        <p>Discover more of the world with warm Ethiopian hospitality and journeys that bring us closer.</p>
+        <a class="button button-gold" href="#search">Find your flight <span>→</span></a>
+      </div>
+      <div class="hero-note"><span class="note-icon">✦</span><div><strong>Travel with confidence</strong><small>Thoughtful journeys, made for you.</small></div></div>
+    </section>
+
+    <section class="search-wrap" id="search">
+      <div class="search-heading"><div><span class="eyebrow green">LET'S PLAN YOUR TRIP</span><h2>Where will you go next?</h2></div><span class="plane-stamp">✈</span></div>
+      <form id="flightSearchForm" class="search-grid">
+        <label>From <span class="input-icon">⌖</span><select id="fromCity"><option value="ADD">Addis Ababa (ADD)</option><option value="GDQ">Gondar (GDQ)</option><option value="JIB">Dire Dawa (DIR)</option><option value="BJR">Bahir Dar (BJR)</option><option value="LAL">Lalibela (LLI)</option></select></label>
+        <button type="button" class="swap-button" id="swapCities" aria-label="Swap cities">⇄</button>
+        <label>To <span class="input-icon">⌖</span><select id="toCity"><option value="GDQ">Gondar (GDQ)</option><option value="ADD">Addis Ababa (ADD)</option><option value="JIB">Dire Dawa (DIR)</option><option value="BJR">Bahir Dar (BJR)</option><option value="LAL">Lalibela (LLI)</option><option value="NBO">Nairobi (NBO)</option><option value="DXB">Dubai (DXB)</option></select></label>
+        <label>Departure date <span class="input-icon">▦</span><input id="travelDate" type="date" required></label>
+        <label>Passengers <span class="input-icon">♙</span><select id="passengers"><option value="1">1 passenger</option><option value="2">2 passengers</option><option value="3">3 passengers</option><option value="4">4 passengers</option><option value="5">5 passengers</option></select></label>
+        <button class="button button-green search-button" type="submit">Search flights <span>→</span></button>
+      </form>
+      <div id="searchMessage" class="message" aria-live="polite"></div>
+    </section>
+
+    <section class="results-section" id="flightResults">
+      <div class="section-heading"><div><span class="eyebrow green">YOUR OPTIONS</span><h2>Available flights</h2></div><span class="muted" id="resultCount">Choose a route and date to begin</span></div>
+      <div id="flightCards" class="flight-list"><div class="empty-state"><span>✈</span><h3>Your next adventure starts here</h3><p>Search for a destination and date to compare available flights.</p></div></div>
+    </section>
+
+    <section class="benefits">
+      <article><span class="benefit-icon">✦</span><div><h3>Warm hospitality</h3><p>Feel at home from take-off to landing.</p></div></article>
+      <article><span class="benefit-icon">◎</span><div><h3>Choices for you</h3><p>Compare routes, times and prices with ease.</p></div></article>
+      <article><span class="benefit-icon">♧</span><div><h3>Travel with care</h3><p>Plan your journey with confidence.</p></div></article>
+    </section>
+
+    <section class="booking-section" id="my-bookings">
+      <div class="section-heading"><div><span class="eyebrow green">YOUR JOURNEY, ORGANIZED</span><h2>Manage your bookings</h2></div></div>
+      <div id="bookingList" class="booking-list"></div>
+    </section>
+  </main>
+
+  <footer><a class="brand footer-brand" href="index.html"><span class="brand-mark">✈</span><span><strong>Ethiopian</strong><small>WINGS OF AFRICA</small></span></a><p>Student project demonstration · Booking data is saved in this browser only.</p><a href="../staff.html">Staff portal →</a></footer>
+
+  <div class="modal-backdrop" id="bookingModal" hidden>
+    <section class="modal">
+      <button class="modal-close" id="closeModal" aria-label="Close">×</button>
+      <span class="eyebrow green">ONE STEP CLOSER</span><h2>Complete your booking</h2><p class="muted" id="selectedFlightSummary"></p>
+      <form id="bookingForm" class="modal-form">
+        <input type="hidden" id="selectedFlightId">
+        <label>Passenger full name<input id="passengerName" required placeholder="Enter your full name"></label>
+        <label>Email address<input id="passengerEmail" type="email" required placeholder="you@example.com"></label>
+        <label>Number of passengers<select id="bookingPassengers"><option value="1">1 passenger</option><option value="2">2 passengers</option><option value="3">3 passengers</option><option value="4">4 passengers</option><option value="5">5 passengers</option></select></label>
+        <button class="button button-green full-width" type="submit">Confirm booking <span>→</span></button>
+      </form>
+      <p class="fine-print">Demo only: no payment is taken and no real airline booking is created.</p>
+    </section>
+  </div>
+  <div class="toast" id="toast" role="status"></div>
+  <script src="../app.js"></script>
+</body>
+</html>
