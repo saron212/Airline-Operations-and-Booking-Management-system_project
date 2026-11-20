@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="SkyPulse Airlines - Search commercial flight schedules, reserve tickets with real-time seat tracking, manage digital check-in, and access flight operations.">
+  <title>SkyPulse Airlines &amp; Operations Management System | Home</title>
+</head>
+<body>
+
+  <nav aria-label="Skip links">
+    <a href="#main-content">Skip to main content</a>
+    <a href="#flight-search-form">Skip to flight search</a>
+  </nav>
+
+  <header role="banner">
+    <div class="header-brand">
+      <a href="index.html" aria-label="SkyPulse Airlines Homepage">
+        <strong>SkyPulse</strong> Airlines &amp; Operations
+      </a>
+      <p>Global Commercial Aviation &amp; Flight Operations Network</p>
+    </div>
+
+    <nav role="navigation" aria-label="Primary Navigation">
+      <ul>
+        <li><a href="index.html" aria-current="page">Home</a></li>
+        <li><a href="pages/passenger/search-flights.html">Search Flights</a></li>
+        <li><a href="pages/passenger/check-in.html">Online Check-In</a></li>
+        <li><a href="pages/passenger/flight-status.html">Flight Status</a></li>
+        <li><a href="pages/passenger/bookings-list.html">My Bookings</a></li>
+        <li><a href="pages/passenger/contact.html">Support &amp; Contact</a></li>
+        <li><a href="pages/staff/login.html">Staff Operations Portal</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main id="main-content" role="main">
+
+    <section aria-labelledby="hero-heading">
+      <header>
+        <h1 id="hero-heading">Fly With Confidence, Managed With Precision</h1>
+        <p>Book commercial flights worldwide, track operational aircraft schedules in real time, and access enterprise airline management services.</p>
+      </header>
+
+      <div class="search-widget" role="search">
+        <h2>Book Commercial Flights</h2>
+
+        <form id="flight-search-form" action="pages/passenger/search-flights.html" method="GET">
+          
+          <fieldset>
+            <legend>Trip Type</legend>
+            <label for="trip-round">
+              <input type="radio" id="trip-round" name="tripType" value="round-trip" checked>
+              Round Trip
+            </label>
+            <label for="trip-oneway">
+              <input type="radio" id="trip-oneway" name="tripType" value="one-way">
+              One Way
+            </label>
+            <label for="trip-multicity">
+              <input type="radio" id="trip-multicity" name="tripType" value="multi-city">
+              Multi-City
+            </label>
+          </fieldset>
+
+          <fieldset>
+            <legend>Flight Route</legend>
+            
+            <div>
+              <label for="origin-airport">Departure City / Airport (Origin):</label>
+              <input list="major-airports" id="origin-airport" name="origin" placeholder="e.g. ADD - Addis Ababa" required autocomplete="off" aria-describedby="origin-hint">
+              <small id="origin-hint">Enter 3-letter IATA code or city name</small>
+            </div>
+
+            <div>
+              <label for="destination-airport">Arrival City / Airport (Destination):</label>
+              <input list="major-airports" id="destination-airport" name="destination" placeholder="e.g. LHR - London Heathrow" required autocomplete="off" aria-describedby="destination-hint">
+              <small id="destination-hint">Enter 3-letter IATA code or city name</small>
+            </div>
+
+            <datalist id="major-airports">
+              <option value="ADD">Addis Ababa Bole International Airport (Ethiopia)</option>
+              <option value="DXB">Dubai International Airport (United Arab Emirates)</option>
+              <option value="LHR">London Heathrow Airport (United Kingdom)</option>
+              <option value="JFK">New York John F. Kennedy International Airport (United States)</option>
+              <option value="CDG">Paris Charles de Gaulle Airport (France)</option>
+              <option value="FRA">Frankfurt Airport (Germany)</option>
+              <option value="NBO">Nairobi Jomo Kenyatta International Airport (Kenya)</option>
+              <option value="IST">Istanbul Airport (Türkiye)</option>
+              <option value="JNB">Johannesburg O.R. Tambo International Airport (South Africa)</option>
+              <option value="DOH">Doha Hamad International Airport (Qatar)</option>
+              <option value="AMS">Amsterdam Airport Schiphol (Netherlands)</option>
+              <option value="SIN">Singapore Changi Airport (Singapore)</option>
+            </datalist>
+          </fieldset>
+
+          <fieldset>
+            <legend>Flight Dates</legend>
+            
+            <div>
+              <label for="departure-date">Departure Date:</label>
+              <input type="date" id="departure-date" name="departureDate" required min="2026-11-10">
+            </div>
+
+            <div>
+              <label for="return-date">Return Date (Optional for One Way):</label>
+              <input type="date" id="return-date" name="returnDate" min="2026-11-10">
+            </div>
+          </fieldset>
+
+          <fieldset>
+            <legend>Travelers &amp; Class</legend>
+
+            <div>
+              <label for="passenger-count">Adult Passengers (Age 12+):</label>
+              <input type="number" id="passenger-count" name="passengers" min="1" max="9" value="1" required>
+            </div>
+
+            <div>
+              <label for="cabin-class">Cabin Class:</label>
+              <select id="cabin-class" name="cabinClass" required>
+                <option value="economy" selected>Economy Class</option>
+                <option value="premium-economy">Premium Economy</option>
+                <option value="business">Business Class (Cloud Nine)</option>
+                <option value="first">First Class</option>
+              </select>
+            </div>
+          </fieldset>
+
+          <div>
+            <button type="submit">Search Available Flights</button>
+            <button type="reset">Reset Search Criteria</button>
+          </div>
+
+        </form>
+      </div>
+    </section>
+
+    <section aria-labelledby="quick-services-heading">
+      <h2 id="quick-services-heading">Quick Passenger Services</h2>
+      <p>Direct access to essential pre-flight management actions without requiring full account login.</p>
+
+      <article>
+        <header>
+          <h3>Online Check-In &amp; Digital Boarding Pass</h3>
+        </header>
+        <p>Check in between 24 hours and 90 minutes before scheduled flight departure, confirm seat selection, and generate a certified digital or printable boarding pass.</p>
+        <form action="pages/passenger/check-in.html" method="GET">
+          <div>
+            <label for="checkin-pnr">Booking Reference (PNR / e-Ticket):</label>
+            <input type="text" id="checkin-pnr" name="pnr" placeholder="e.g. SKP987" required pattern="[A-Za-z0-9]{6}" title="6-character alphanumeric booking reference">
+          </div>
+          <div>
+            <label for="checkin-lastname">Passenger Surname / Last Name:</label>
+            <input type="text" id="checkin-lastname" name="lastName" placeholder="e.g. Smith" required>
+          </div>
+          <button type="submit">Start Check-In</button>
+        </form>
+      </article>
+
+      <article>
+        <header>
+          <h3>Manage Existing Reservation</h3>
+        </header>
+        <p>Retrieve itinerary, review electronic ticket status, modify seat assignments, add excess baggage, request special meals, or initiate cancellation and refund requests.</p>
+        <form action="pages/passenger/bookings-list.html" method="GET">
+          <div>
+            <label for="manage-pnr">Booking Reference (PNR / e-Ticket):</label>
+            <input type="text" id="manage-pnr" name="pnr" placeholder="e.g. SKP987" required pattern="[A-Za-z0-9]{6}">
+          </div>
+          <div>
+            <label for="manage-email">Passenger Email Address:</label>
+            <input type="email" id="manage-email" name="email" placeholder="e.g. traveler@domain.com" required>
+          </div>
+          <button type="submit">Find My Booking</button>
+        </form>
+      </article>
+
+      <article>
+        <header>
+          <h3>Live Flight Status &amp; Schedule Tracker</h3>
+        </header>
+        <p>Monitor real-time scheduled and estimated departure/arrival timelines (STD/ETD, STA/ETA), assigned terminal gates, and operational status.</p>
+        <form action="pages/passenger/flight-status.html" method="GET">
+          <div>
+            <label for="status-flight-number">Commercial Flight Number:</label>
+            <input type="text" id="status-flight-number" name="flightNumber" placeholder="e.g. ET-700" required pattern="[A-Za-z0-9\-]{4,8}">
+          </div>
+          <div>
+            <label for="status-date">Scheduled Departure Date:</label>
+            <input type="date" id="status-date" name="flightDate" required value="2026-11-20">
+          </div>
+          <button type="submit">Track Flight</button>
+        </form>
+      </article>
+    </section>
+
+    <section aria-labelledby="featured-routes-heading">
+      <header>
+        <h2 id="featured-routes-heading">Featured Destinations &amp; Flight Schedules</h2>
+        <p>Discover top commercial routes operated by state-of-the-art aircraft with verified daily connections.</p>
+      </header>
+
+      <article>
+        <header>
+          <h3>Addis Ababa (ADD) &rarr; London Heathrow (LHR)</h3>
+          <p><strong>Route:</strong> ADD &ndash; LHR &bull; <strong>Frequency:</strong> Daily Non-Stop</p>
+        </header>
+        <p>Direct non-stop service connecting Bole International with London Heathrow Terminal 2 on the Boeing 787-9 Dreamliner.</p>
+        <ul>
+          <li><strong>Flight Number:</strong> ET-700</li>
+          <li><strong>Departure / Arrival:</strong> 08:30 EAT &rarr; 13:15 GMT</li>
+          <li><strong>Flight Duration:</strong> 7 hours 45 minutes</li>
+          <li><strong>Economy Fares:</strong> From $580 USD (All taxes &amp; fees included)</li>
+        </ul>
+        <footer>
+          <a href="pages/passenger/flight-details.html?flightId=ET-700">View Full Schedule &amp; Seat Map</a>
+          &bull;
+          <a href="pages/passenger/search-flights.html?origin=ADD&amp;destination=LHR">Search All Dates</a>
+        </footer>
+      </article>
+
+      <article>
+        <header>
+          <h3>Addis Ababa (ADD) &rarr; Dubai International (DXB)</h3>
+          <p><strong>Route:</strong> ADD &ndash; DXB &bull; <strong>Frequency:</strong> 3 Flights Daily</p>
+        </header>
+        <p>Frequent morning, afternoon, and evening flights connecting East Africa with the Middle East global hub.</p>
+        <ul>
+          <li><strong>Flight Numbers:</strong> ET-600, ET-602, EK-724</li>
+          <li><strong>Average Duration:</strong> 4 hours 15 minutes</li>
+          <li><strong>Aircraft:</strong> Airbus A350-900 / Boeing 777-300ER</li>
+          <li><strong>Economy Fares:</strong> From $390 USD (All taxes &amp; fees included)</li>
+        </ul>
+        <footer>
+          <a href="pages/passenger/flight-details.html?flightId=ET-600">View Full Schedule &amp; Seat Map</a>
+          &bull;
+          <a href="pages/passenger/search-flights.html?origin=ADD&amp;destination=DXB">Search All Dates</a>
+        </footer>
+      </article>
+
+      <article>
+        <header>
+          <h3>Addis Ababa (ADD) &rarr; New York JFK (JFK)</h3>
+          <p><strong>Route:</strong> ADD &ndash; JFK &bull; <strong>Frequency:</strong> 4x Weekly Direct</p>
+        </header>
+        <p>Transatlantic service connecting Addis Ababa with John F. Kennedy International Airport Terminal 4.</p>
+        <ul>
+          <li><strong>Flight Number:</strong> ET-500</li>
+          <li><strong>Average Duration:</strong> 14 hours 20 minutes (Operational technical stop in Lom&eacute; LFW)</li>
+          <li><strong>Aircraft:</strong> Boeing 787-9 Dreamliner</li>
+          <li><strong>Economy Fares:</strong> From $840 USD (All taxes &amp; fees included)</li>
+        </ul>
+        <footer>
+          <a href="pages/passenger/flight-details.html?flightId=ET-500">View Full Schedule &amp; Seat Map</a>
+          &bull;
+          <a href="pages/passenger/search-flights.html?origin=ADD&amp;destination=JFK">Search All Dates</a>
+        </footer>
+      </article>
+
+      <article>
+        <header>
+          <h3>Addis Ababa (ADD) &rarr; Nairobi Jomo Kenyatta (NBO)</h3>
+          <p><strong>Route:</strong> ADD &ndash; NBO &bull; <strong>Frequency:</strong> 4 Flights Daily</p>
+        </header>
+        <p>Regional East African corridor with seamless connections across the African continent.</p>
+        <ul>
+          <li><strong>Flight Numbers:</strong> ET-302, ET-304, KQ-401</li>
+          <li><strong>Average Duration:</strong> 2 hours 10 minutes (Non-stop)</li>
+          <li><strong>Aircraft:</strong> Boeing 737-800 / Airbus A350</li>
+          <li><strong>Economy Fares:</strong> From $260 USD (All taxes &amp; fees included)</li>
+        </ul>
+        <footer>
+          <a href="pages/passenger/flight-details.html?flightId=ET-302">View Full Schedule &amp; Seat Map</a>
+          &bull;
+          <a href="pages/passenger/search-flights.html?origin=ADD&amp;destination=NBO">Search All Dates</a>
+        </footer>
+      </article>
+    </section>
+
+    <section aria-labelledby="staff-operations-heading">
+      <header>
+        <h2 id="staff-operations-heading">Flight Operations &amp; Dispatch Management</h2>
+        <p>Coordinated operational control for commercial flight dispatching, cockpit and cabin crew scheduling, and route analytics.</p>
+      </header>
+
+      <article>
+        <h3>Authorized Operations Staff Portal</h3>
+        <p>Operational personnel, flight dispatchers, and station managers can sign in to view live flight schedules, assign qualified crew members, and monitor flight load factors.</p>
+        <p><a href="pages/staff/login.html">Access Staff Operations Portal &rarr;</a></p>
+      </article>
+    </section>
+
+    <section aria-labelledby="guidelines-heading">
+      <header>
+        <h2 id="guidelines-heading">International Travel Guidelines &amp; Passenger Policies</h2>
+        <p>Standard regulatory requirements governing international air carriage, luggage conveyance, and passenger rights.</p>
+      </header>
+
+      <details open>
+        <summary><strong>IATA Standard Baggage Allowance Policy (Piece Concept)</strong></summary>
+        <p>Standard Economy ticket holders are entitled to two (2) pieces of checked baggage weighing up to 23 kg (50 lbs) each, with maximum combined linear dimensions (Length + Width + Height) not exceeding 158 cm (62 inches). Cabin baggage is limited to one (1) piece not exceeding 55 &times; 40 &times; 23 cm (max 7 kg / 15 lbs) plus one small personal item (such as a slim laptop bag or handbag) stowed beneath the seat forward.</p>
+      </details>
+
+      <details>
+        <summary><strong>Airport Check-in Deadlines &amp; Boarding Gate Closures</strong></summary>
+        <p>Web and mobile check-in opens 24 hours prior to Scheduled Time of Departure (STD) and closes strictly 90 minutes prior. For international departures, passengers must report to the airport check-in counter at least three (3) hours prior to STD. In compliance with aviation security regulations, boarding gates close strictly 20 minutes before departure.</p>
+      </details>
+
+      <details>
+        <summary><strong>Ticket Rescheduling, Voluntary Cancellation, &amp; Fare Refund Conditions</strong></summary>
+        <p>Cancellations requested 24 hours or more before scheduled departure qualify for partial refund subject to fare family rules. Economy Flex and Business Class fares permit complimentary date changes (fare difference may apply). Involuntary delays exceeding three hours or flight cancellations are governed by Montreal Convention passenger rights.</p>
+      </details>
+
+      <details>
+        <summary><strong>Special Service Requests (SSR), Dietary Requirements, &amp; Mobility Assistance</strong></summary>
+        <p>Special meals (such as Halal, Kosher, Hindu Vegetarian, Diabetic, or Gluten-Intolerant options) must be requested at least 24 hours prior to departure via the booking portal. Wheelchair assistance (WCHR, WCHS, WCHC) and unaccompanied minor (UMNR) services should be arranged during ticket reservation.</p>
+      </details>
+    </section>
+
+  </main>
+
+  <footer role="contentinfo">
+    <div>
+      <section aria-labelledby="footer-about-heading">
+        <h3 id="footer-about-heading">SkyPulse Airlines &amp; Operations</h3>
+        <p>Connecting international hubs across Africa, Europe, the Middle East, Asia, and the Americas with modern fleet operations, seamless reservation services, and passenger-first reliability.</p>
+        <p><small>&copy; 2026 SkyPulse Airlines, Inc. All rights reserved.</small></p>
+      </section>
+
+      <section aria-labelledby="footer-links-heading">
+        <h3 id="footer-links-heading">Passenger Services</h3>
+        <nav aria-label="Footer Passenger Navigation">
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="pages/passenger/search-flights.html">Search Flights &amp; Fares</a></li>
+            <li><a href="pages/passenger/check-in.html">Online Check-In</a></li>
+            <li><a href="pages/passenger/flight-status.html">Live Flight Status</a></li>
+            <li><a href="pages/passenger/bookings-list.html">Manage Reservations</a></li>
+            <li><a href="pages/passenger/contact.html">Customer Support &amp; Assistance</a></li>
+            <li><a href="pages/staff/login.html">Staff Operations Portal</a></li>
+          </ul>
+        </nav>
+      </section>
+
+      <section aria-labelledby="footer-legal-heading">
+        <h3 id="footer-legal-heading">Legal &amp; Travel Policies</h3>
+        <nav aria-label="Footer Legal Navigation">
+          <ul>
+            <li><a href="pages/passenger/contact.html#conditions-of-carriage">General Conditions of Carriage</a></li>
+            <li><a href="pages/passenger/contact.html#passenger-rights">International Passenger Rights &amp; Montreal Convention</a></li>
+            <li><a href="pages/passenger/contact.html#privacy-policy">Privacy Notice &amp; Data Protection</a></li>
+            <li><a href="pages/passenger/contact.html#baggage-policy">Dangerous Goods Regulations &amp; Baggage Rules</a></li>
+            <li><a href="pages/passenger/contact.html#travel-advisories">Travel Advisories &amp; Visa Regulations</a></li>
+          </ul>
+        </nav>
+      </section>
+    </div>
+
+    <div>
+      <p><small>International Air Transport Association (IATA) Accredited System &bull; Compliant with W3C Semantic HTML5 &amp; WCAG 2.1 AA Accessibility Standards.</small></p>
+    </div>
+  </footer>
+
+</body>
+</html>
