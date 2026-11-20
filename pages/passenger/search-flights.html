@@ -1,0 +1,746 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Search and compare commercial flights worldwide with transparent fares, seat availability, aircraft specifications, and flexible departure dates.">
+  <title>Search Flights &amp; Compare Fares | SkyPulse Airlines</title>
+</head>
+<body>
+
+  <nav aria-label="Skip links">
+    <a href="#main-content">Skip to search results</a>
+    <a href="#search-query-form">Skip to search modification</a>
+    <a href="#filter-form">Skip to filter controls</a>
+  </nav>
+
+  <header role="banner">
+    <div class="header-brand">
+      <a href="../../index.html" aria-label="SkyPulse Airlines Homepage">
+        <strong>SkyPulse</strong> Airlines &amp; Operations
+      </a>
+      <p>Passenger Booking Portal &mdash; Flight Search Engine</p>
+    </div>
+
+    <nav role="navigation" aria-label="Primary Navigation">
+      <ul>
+        <li><a href="../../index.html">Home</a></li>
+        <li><a href="search-flights.html" aria-current="page">Search Flights</a></li>
+        <li><a href="check-in.html">Online Check-In</a></li>
+        <li><a href="flight-status.html">Flight Status</a></li>
+        <li><a href="bookings-list.html">My Bookings</a></li>
+        <li><a href="contact.html">Support &amp; Contact</a></li>
+        <li><a href="../staff/login.html">Staff Operations Portal</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <nav aria-label="Breadcrumb">
+    <ol>
+      <li><a href="../../index.html">Home</a> &gt; </li>
+      <li><a href="search-flights.html" aria-current="location">Search Flights</a></li>
+    </ol>
+  </nav>
+
+  <main id="main-content" role="main">
+
+    <section aria-labelledby="search-criteria-heading">
+      <header>
+        <h1 id="search-criteria-heading">Search Flights &amp; Compare Available Fares</h1>
+        <p>Modify route, travel dates, or passenger count to update live schedule availability.</p>
+      </header>
+
+      <form id="search-query-form" action="search-flights.html" method="GET" role="search">
+        
+        <fieldset>
+          <legend>Trip Type</legend>
+          <label for="search-trip-round">
+            <input type="radio" id="search-trip-round" name="tripType" value="round-trip" checked>
+            Round Trip
+          </label>
+          <label for="search-trip-oneway">
+            <input type="radio" id="search-trip-oneway" name="tripType" value="one-way">
+            One Way
+          </label>
+          <label for="search-trip-multi">
+            <input type="radio" id="search-trip-multi" name="tripType" value="multi-city">
+            Multi-City
+          </label>
+        </fieldset>
+
+        <fieldset>
+          <legend>Origin &amp; Destination</legend>
+          
+          <div>
+            <label for="search-origin">From (Origin Airport):</label>
+            <input list="airports-reference" id="search-origin" name="origin" value="ADD" placeholder="Airport code or city (e.g. ADD)" required>
+          </div>
+
+          <div>
+            <label for="search-destination">To (Destination Airport):</label>
+            <input list="airports-reference" id="search-destination" name="destination" value="LHR" placeholder="Airport code or city (e.g. LHR)" required>
+          </div>
+
+          <datalist id="airports-reference">
+            <option value="ADD">Addis Ababa Bole International Airport (Ethiopia)</option>
+            <option value="LHR">London Heathrow Airport (United Kingdom)</option>
+            <option value="DXB">Dubai International Airport (United Arab Emirates)</option>
+            <option value="JFK">New York John F. Kennedy International Airport (United States)</option>
+            <option value="CDG">Paris Charles de Gaulle Airport (France)</option>
+            <option value="FRA">Frankfurt Airport (Germany)</option>
+            <option value="NBO">Nairobi Jomo Kenyatta International Airport (Kenya)</option>
+            <option value="IST">Istanbul Airport (Türkiye)</option>
+            <option value="JNB">Johannesburg O.R. Tambo International Airport (South Africa)</option>
+            <option value="DOH">Doha Hamad International Airport (Qatar)</option>
+          </datalist>
+        </fieldset>
+
+        <fieldset>
+          <legend>Travel Dates</legend>
+          
+          <div>
+            <label for="search-depart-date">Departure Date:</label>
+            <input type="date" id="search-depart-date" name="departureDate" value="2026-11-20" required min="2026-11-10">
+          </div>
+
+          <div>
+            <label for="search-return-date">Return Date:</label>
+            <input type="date" id="search-return-date" name="returnDate" value="2026-11-27" min="2026-11-10">
+          </div>
+        </fieldset>
+
+        <fieldset>
+          <legend>Passengers &amp; Travel Class</legend>
+
+          <div>
+            <label for="search-passengers">Passengers:</label>
+            <input type="number" id="search-passengers" name="passengers" min="1" max="9" value="1" required>
+          </div>
+
+          <div>
+            <label for="search-class">Cabin Class:</label>
+            <select id="search-class" name="cabinClass" required>
+              <option value="economy" selected>Economy Class</option>
+              <option value="premium-economy">Premium Economy</option>
+              <option value="business">Business Class (Cloud Nine)</option>
+              <option value="first">First Class</option>
+            </select>
+          </div>
+        </fieldset>
+
+        <div>
+          <button type="submit">Update Search</button>
+        </div>
+
+      </form>
+    </section>
+
+    <section aria-labelledby="query-feedback-heading">
+      <h2 id="query-feedback-heading">Search Route Summary</h2>
+      
+      <div role="status" aria-live="polite">
+        <p>
+          Showing <strong>5 available flights</strong> for: 
+          <strong>Addis Ababa Bole (ADD)</strong> &rarr; <strong>London Heathrow (LHR)</strong> &bull; 
+          Departure: <strong>Friday, Nov 20, 2026</strong> &bull; 
+          Travelers: <strong>1 Passenger (Economy)</strong>
+        </p>
+      </div>
+    </section>
+
+    <section aria-labelledby="flexible-dates-heading">
+      <h2 id="flexible-dates-heading">Flexible Dates Fare Calendar (&plusmn;3 Days)</h2>
+      <p>Compare lowest economy fares across adjacent travel dates for the ADD &rarr; LHR route.</p>
+
+      <table>
+        <caption>Lowest Available Fares for Selected Departure Dates</caption>
+        <thead>
+          <tr>
+            <th scope="col">Wed, Nov 18</th>
+            <th scope="col">Thu, Nov 19</th>
+            <th scope="col" aria-current="date">Fri, Nov 20 (Selected)</th>
+            <th scope="col">Sat, Nov 21</th>
+            <th scope="col">Sun, Nov 22</th>
+            <th scope="col">Mon, Nov 23 (Lowest)</th>
+            <th scope="col">Tue, Nov 24</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>
+              <a href="search-flights.html?origin=ADD&amp;destination=LHR&amp;departureDate=2026-11-18">
+                $620 USD
+              </a>
+            </td>
+            <td>
+              <a href="search-flights.html?origin=ADD&amp;destination=LHR&amp;departureDate=2026-11-19">
+                $595 USD
+              </a>
+            </td>
+            <td>
+              <strong>$580 USD</strong>
+              <br><small>(Current Selection)</small>
+            </td>
+            <td>
+              <a href="search-flights.html?origin=ADD&amp;destination=LHR&amp;departureDate=2026-11-21">
+                $640 USD
+              </a>
+            </td>
+            <td>
+              <a href="search-flights.html?origin=ADD&amp;destination=LHR&amp;departureDate=2026-11-22">
+                $610 USD
+              </a>
+            </td>
+            <td>
+              <a href="search-flights.html?origin=ADD&amp;destination=LHR&amp;departureDate=2026-11-23">
+                <mark><strong>$570 USD</strong></mark>
+              </a>
+            </td>
+            <td>
+              <a href="search-flights.html?origin=ADD&amp;destination=LHR&amp;departureDate=2026-11-24">
+                $585 USD
+              </a>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <aside aria-labelledby="filter-heading">
+      <h2 id="filter-heading">Filter Search Results</h2>
+      
+      <form id="filter-form" action="search-flights.html" method="GET">
+        
+        <input type="hidden" name="origin" value="ADD">
+        <input type="hidden" name="destination" value="LHR">
+        <input type="hidden" name="departureDate" value="2026-11-20">
+        <input type="hidden" name="passengers" value="1">
+
+        <fieldset>
+          <legend>Flight Stops</legend>
+          <label for="filter-stop-direct">
+            <input type="checkbox" id="filter-stop-direct" name="stops" value="direct" checked>
+            Direct / Non-Stop (2)
+          </label>
+          <br>
+          <label for="filter-stop-one">
+            <input type="checkbox" id="filter-stop-one" name="stops" value="1-stop" checked>
+            1 Stop (3)
+          </label>
+          <br>
+          <label for="filter-stop-multi">
+            <input type="checkbox" id="filter-stop-multi" name="stops" value="2-plus-stops">
+            2+ Stops (0)
+          </label>
+        </fieldset>
+
+        <fieldset>
+          <legend>Operating Airlines</legend>
+          <label for="filter-airline-et">
+            <input type="checkbox" id="filter-airline-et" name="airlines" value="ET" checked>
+            Ethiopian Airlines (2)
+          </label>
+          <br>
+          <label for="filter-airline-ek">
+            <input type="checkbox" id="filter-airline-ek" name="airlines" value="EK" checked>
+            Emirates (1)
+          </label>
+          <br>
+          <label for="filter-airline-lh">
+            <input type="checkbox" id="filter-airline-lh" name="airlines" value="LH" checked>
+            Lufthansa (1)
+          </label>
+          <br>
+          <label for="filter-airline-qr">
+            <input type="checkbox" id="filter-airline-qr" name="airlines" value="QR" checked>
+            Qatar Airways (1)
+          </label>
+        </fieldset>
+
+        <fieldset>
+          <legend>Departure Time from ADD</legend>
+          <label for="filter-time-morning">
+            <input type="checkbox" id="filter-time-morning" name="departureWindow" value="morning" checked>
+            Morning (06:00 &ndash; 11:59)
+          </label>
+          <br>
+          <label for="filter-time-afternoon">
+            <input type="checkbox" id="filter-time-afternoon" name="departureWindow" value="afternoon" checked>
+            Afternoon (12:00 &ndash; 17:59)
+          </label>
+          <br>
+          <label for="filter-time-evening">
+            <input type="checkbox" id="filter-time-evening" name="departureWindow" value="evening" checked>
+            Evening (18:00 &ndash; 23:59)
+          </label>
+          <br>
+          <label for="filter-time-night">
+            <input type="checkbox" id="filter-time-night" name="departureWindow" value="night" checked>
+            Night / Overnight (00:00 &ndash; 05:59)
+          </label>
+        </fieldset>
+
+        <fieldset>
+          <legend>Price Budget (USD)</legend>
+          <label for="filter-price-slider">Maximum Price:</label>
+          <input type="range" id="filter-price-slider" name="maxPrice" min="300" max="1500" step="50" value="1000" aria-describedby="price-output">
+          <p><output for="filter-price-slider" id="price-output">Up to $1,000 USD</output></p>
+        </fieldset>
+
+        <fieldset>
+          <legend>Aircraft Fleet</legend>
+          <label for="filter-fleet-787">
+            <input type="checkbox" id="filter-fleet-787" name="aircraft" value="B787" checked>
+            Boeing 787-9 Dreamliner
+          </label>
+          <br>
+          <label for="filter-fleet-a350">
+            <input type="checkbox" id="filter-fleet-a350" name="aircraft" value="A350" checked>
+            Airbus A350-900 XWB
+          </label>
+          <br>
+          <label for="filter-fleet-777">
+            <input type="checkbox" id="filter-fleet-777" name="aircraft" value="B777" checked>
+            Boeing 777-300ER
+          </label>
+        </fieldset>
+
+        <div>
+          <button type="submit">Apply Filters</button>
+          <button type="reset">Reset All Filters</button>
+        </div>
+      </form>
+    </aside>
+
+    <section aria-labelledby="results-list-heading">
+      <header>
+        <h2 id="results-list-heading">Available Flights (5 options found)</h2>
+        
+        <form action="search-flights.html" method="GET">
+          <label for="sort-select">Sort Results By:</label>
+          <select id="sort-select" name="sort">
+            <option value="price-asc" selected>Price: Lowest to Highest</option>
+            <option value="duration-asc">Duration: Shortest First</option>
+            <option value="departure-asc">Departure: Earliest First</option>
+            <option value="departure-desc">Departure: Latest First</option>
+          </select>
+          <button type="submit">Sort</button>
+        </form>
+      </header>
+
+      <article aria-labelledby="flight-et700-title">
+        <header>
+          <h3 id="flight-et700-title">Ethiopian Airlines &mdash; Flight ET-700</h3>
+          <p>
+            <span><strong>Aircraft:</strong> Boeing 787-9 Dreamliner</span> | 
+            <span><mark>Recommended / Best Direct Option</mark></span>
+          </p>
+        </header>
+
+        <table>
+          <caption>Flight ET-700 Schedule &amp; Routing Details</caption>
+          <thead>
+            <tr>
+              <th scope="col">Departure</th>
+              <th scope="col">Flight Duration &amp; Routing</th>
+              <th scope="col">Arrival</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>
+                <time datetime="2026-11-20T08:30:00+03:00"><strong>08:30 EAT</strong></time>
+                <br>
+                <span>Addis Ababa Bole (ADD)</span>
+                <br>
+                <small>Terminal 2</small>
+              </td>
+              <td>
+                <strong>07h 45m</strong>
+                <br>
+                <span>Non-Stop Direct Flight</span>
+                <br>
+                <small>Distance: 5,900 km</small>
+              </td>
+              <td>
+                <time datetime="2026-11-20T13:15:00Z"><strong>13:15 GMT</strong></time>
+                <br>
+                <span>London Heathrow (LHR)</span>
+                <br>
+                <small>Terminal 2 (Queen's Terminal)</small>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+
+        <section aria-label="Flight ET-700 Inclusions">
+          <h4>Included Amenities &amp; Allowances:</h4>
+          <ul>
+            <li><strong>Baggage:</strong> 2 pieces checked (23 kg each) + 1 carry-on (7 kg)</li>
+            <li><strong>Dining:</strong> Complimentary multi-course hot meal &amp; beverages</li>
+            <li><strong>In-flight Entertainment:</strong> Personal touchscreens with 200+ movies</li>
+            <li><strong>Connectivity:</strong> On-board satellite Wi-Fi &amp; USB power outlets</li>
+            <li><strong>Seat Pitch:</strong> 32 inches ergonomic recline seat</li>
+          </ul>
+        </section>
+
+        <footer>
+          <p>
+            <strong>Fare: $580 USD</strong> per passenger (Taxes &amp; airport fees included)
+            <br>
+            <mark><strong>Only 4 seats remaining</strong> at this promotional fare!</mark>
+          </p>
+          <div>
+            <a href="flight-details.html?flightId=ET-700">View Full Flight Details &amp; Seat Map</a>
+            &nbsp;|&nbsp;
+            <a href="booking-form.html?flightId=ET-700"><strong>Select Flight &amp; Book Now &rarr;</strong></a>
+          </div>
+        </footer>
+      </article>
+
+      <hr>
+
+      <article aria-labelledby="flight-et710-title">
+        <header>
+          <h3 id="flight-et710-title">Ethiopian Airlines &mdash; Flight ET-710 (Red-Eye Service)</h3>
+          <p>
+            <span><strong>Aircraft:</strong> Airbus A350-900 XWB</span> | 
+            <span><strong>Feature:</strong> Overnight Non-Stop Flight</span>
+          </p>
+        </header>
+
+        <table>
+          <caption>Flight ET-710 Red-Eye Schedule &amp; Routing Details</caption>
+          <thead>
+            <tr>
+              <th scope="col">Departure</th>
+              <th scope="col">Flight Duration &amp; Routing</th>
+              <th scope="col">Arrival</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>
+                <time datetime="2026-11-20T23:45:00+03:00"><strong>23:45 EAT</strong></time>
+                <br>
+                <span>Addis Ababa Bole (ADD)</span>
+                <br>
+                <small>Terminal 2</small>
+              </td>
+              <td>
+                <strong>07h 30m</strong>
+                <br>
+                <span>Non-Stop Direct Flight (Fastest)</span>
+                <br>
+                <small>Next-day early morning arrival</small>
+              </td>
+              <td>
+                <time datetime="2026-11-21T04:15:00Z"><strong>04:15 GMT (+1 day)</strong></time>
+                <br>
+                <span>London Heathrow (LHR)</span>
+                <br>
+                <small>Terminal 2</small>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+
+        <section aria-label="Flight ET-710 Inclusions">
+          <h4>Included Amenities &amp; Allowances:</h4>
+          <ul>
+            <li><strong>Baggage:</strong> 2 pieces checked (23 kg each) + 1 carry-on (7 kg)</li>
+            <li><strong>Cabin Comfort:</strong> Quiet modern A350 cabin with full LED ambient night lighting</li>
+            <li><strong>Dining:</strong> Midnight supper &amp; hot breakfast before landing</li>
+          </ul>
+        </section>
+
+        <footer>
+          <p>
+            <strong>Fare: $610 USD</strong> per passenger
+            <br>
+            <span>7 seats remaining</span>
+          </p>
+          <div>
+            <a href="flight-details.html?flightId=ET-710">View Full Flight Details &amp; Seat Map</a>
+            &nbsp;|&nbsp;
+            <a href="booking-form.html?flightId=ET-710"><strong>Select Flight &amp; Book Now &rarr;</strong></a>
+          </div>
+        </footer>
+      </article>
+
+      <hr>
+
+      <article aria-labelledby="flight-ek724-title">
+        <header>
+          <h3 id="flight-ek724-title">Emirates &mdash; Flights EK-724 &amp; EK-001 (1 Stop via Dubai)</h3>
+          <p>
+            <span><strong>Aircraft:</strong> Boeing 777-300ER (ADD&rarr;DXB) &amp; Airbus A380-800 (DXB&rarr;LHR)</span>
+          </p>
+        </header>
+
+        <table>
+          <caption>Emirates Connecting Itinerary &amp; Layover Breakdown</caption>
+          <thead>
+            <tr>
+              <th scope="col">Departure</th>
+              <th scope="col">Layover / Transit</th>
+              <th scope="col">Arrival</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>
+                <time datetime="2026-11-20T16:15:00+03:00"><strong>16:15 EAT</strong></time>
+                <br>
+                <span>Addis Ababa Bole (ADD)</span>
+              </td>
+              <td>
+                <strong>11h 20m Total Travel Time</strong>
+                <br>
+                <span>2h 15m Connection at Dubai Intl (DXB)</span>
+                <br>
+                <small>Seamless baggage transfer to London</small>
+              </td>
+              <td>
+                <time datetime="2026-11-21T00:35:00Z"><strong>00:35 GMT (+1 day)</strong></time>
+                <br>
+                <span>London Heathrow (LHR)</span>
+                <br>
+                <small>Terminal 3</small>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+
+        <section aria-label="Flight EK-724 Inclusions">
+          <h4>Included Amenities &amp; Allowances:</h4>
+          <ul>
+            <li><strong>Baggage:</strong> 30 kg checked weight allowance + 7 kg carry-on</li>
+            <li><strong>Entertainment:</strong> Award-winning ICE system with 6,500 channels</li>
+            <li><strong>Meals:</strong> Regionally inspired gourmet dining and refreshments</li>
+          </ul>
+        </section>
+
+        <footer>
+          <p>
+            <strong>Fare: $645 USD</strong> per passenger
+            <br>
+            <span>12 seats remaining</span>
+          </p>
+          <div>
+            <a href="flight-details.html?flightId=EK-724">View Full Flight Details &amp; Seat Map</a>
+            &nbsp;|&nbsp;
+            <a href="booking-form.html?flightId=EK-724"><strong>Select Flight &amp; Book Now &rarr;</strong></a>
+          </div>
+        </footer>
+      </article>
+
+      <hr>
+
+      <article aria-labelledby="flight-qr1428-title">
+        <header>
+          <h3 id="flight-qr1428-title">Qatar Airways &mdash; Flights QR-1428 &amp; QR-007 (1 Stop via Doha)</h3>
+          <p>
+            <span><strong>Aircraft:</strong> Boeing 787-8 &amp; Boeing 777-300ER</span>
+          </p>
+        </header>
+
+        <table>
+          <caption>Qatar Airways Connecting Itinerary &amp; Layover Breakdown</caption>
+          <thead>
+            <tr>
+              <th scope="col">Departure</th>
+              <th scope="col">Layover / Transit</th>
+              <th scope="col">Arrival</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>
+                <time datetime="2026-11-20T13:50:00+03:00"><strong>13:50 EAT</strong></time>
+                <br>
+                <span>Addis Ababa Bole (ADD)</span>
+              </td>
+              <td>
+                <strong>11h 55m Total Travel Time</strong>
+                <br>
+                <span>1h 50m Transit at Hamad Intl Airport (DOH)</span>
+              </td>
+              <td>
+                <time datetime="2026-11-20T22:45:00Z"><strong>22:45 GMT</strong></time>
+                <br>
+                <span>London Heathrow (LHR)</span>
+                <br>
+                <small>Terminal 4</small>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+
+        <section aria-label="Flight QR-1428 Inclusions">
+          <h4>Included Amenities &amp; Allowances:</h4>
+          <ul>
+            <li><strong>Baggage:</strong> 25 kg checked allowance + 7 kg carry-on</li>
+            <li><strong>Entertainment:</strong> Oryx One audio/visual in-flight system</li>
+          </ul>
+        </section>
+
+        <footer>
+          <p>
+            <strong>Fare: $685 USD</strong> per passenger
+            <br>
+            <span>5 seats remaining</span>
+          </p>
+          <div>
+            <a href="flight-details.html?flightId=QR-1428">View Full Flight Details &amp; Seat Map</a>
+            &nbsp;|&nbsp;
+            <a href="booking-form.html?flightId=QR-1428"><strong>Select Flight &amp; Book Now &rarr;</strong></a>
+          </div>
+        </footer>
+      </article>
+
+      <hr>
+
+      <article aria-labelledby="flight-lh599-title">
+        <header>
+          <h3 id="flight-lh599-title">Lufthansa &mdash; Flights LH-599 &amp; LH-920 (1 Stop via Frankfurt)</h3>
+          <p>
+            <span><strong>Aircraft:</strong> Airbus A330-300 &amp; Airbus A320neo</span>
+          </p>
+        </header>
+
+        <table>
+          <caption>Lufthansa Connecting Itinerary &amp; Layover Breakdown</caption>
+          <thead>
+            <tr>
+              <th scope="col">Departure</th>
+              <th scope="col">Layover / Transit</th>
+              <th scope="col">Arrival</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>
+                <time datetime="2026-11-20T23:15:00+03:00"><strong>23:15 EAT</strong></time>
+                <br>
+                <span>Addis Ababa Bole (ADD)</span>
+              </td>
+              <td>
+                <strong>12h 10m Total Travel Time</strong>
+                <br>
+                <span>2h 45m Connection at Frankfurt Airport (FRA)</span>
+              </td>
+              <td>
+                <time datetime="2026-11-21T08:25:00Z"><strong>08:25 GMT (+1 day)</strong></time>
+                <br>
+                <span>London Heathrow (LHR)</span>
+                <br>
+                <small>Terminal 2</small>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+
+        <section aria-label="Flight LH-599 Inclusions">
+          <h4>Included Amenities &amp; Allowances:</h4>
+          <ul>
+            <li><strong>Baggage:</strong> 1 piece checked (23 kg) + 1 carry-on (8 kg)</li>
+            <li><strong>Connectivity:</strong> FlyNet high-speed internet portal</li>
+          </ul>
+        </section>
+
+        <footer>
+          <p>
+            <strong>Fare: $720 USD</strong> per passenger
+            <br>
+            <span>9 seats remaining</span>
+          </p>
+          <div>
+            <a href="flight-details.html?flightId=LH-599">View Full Flight Details &amp; Seat Map</a>
+            &nbsp;|&nbsp;
+            <a href="booking-form.html?flightId=LH-599"><strong>Select Flight &amp; Book Now &rarr;</strong></a>
+          </div>
+        </footer>
+      </article>
+
+      <nav aria-label="Flight Search Results Pagination">
+        <p>Showing 1&ndash;5 of 15 available flights</p>
+        <ol>
+          <li><span aria-current="page"><strong>1</strong></span></li>
+          <li><a href="search-flights.html?page=2" aria-label="Go to Page 2">2</a></li>
+          <li><a href="search-flights.html?page=3" aria-label="Go to Page 3">3</a></li>
+          <li><a href="search-flights.html?page=2" aria-label="Next page">Next &rarr;</a></li>
+        </ol>
+      </nav>
+
+    </section>
+
+    <section aria-labelledby="fare-rules-heading">
+      <header>
+        <h2 id="fare-rules-heading">IATA Route Regulations &amp; International Fare Conditions</h2>
+        <p>Standard regulatory conditions governing scheduled international passenger air services from Addis Ababa Bole (ADD).</p>
+      </header>
+
+      <details open>
+        <summary><strong>Fare Validity, Surcharges &amp; Price Guarantee</strong></summary>
+        <p>Quoted fares represent total all-inclusive passenger prices comprising base airfare, government aviation security charges, international passenger service facility charges (PSC), and airline fuel surcharges. Selected fares and seat inventory are secured for 15 minutes during checkout.</p>
+      </details>
+
+      <details>
+        <summary><strong>International Transit Clearances &amp; Transfer Protocols</strong></summary>
+        <p>Passengers holding itineraries with connections through Dubai International (DXB), Hamad International (DOH), or Frankfurt (FRA) benefit from automated through-checked baggage transfer to destination. Travelers must ensure compliance with intermediate transit visa and national immigration health entry requirements.</p>
+      </details>
+
+      <details>
+        <summary><strong>Involuntary Schedule Disruption &amp; Passenger Rights (Montreal Convention Framework)</strong></summary>
+        <p>In accordance with the Montreal Convention (1999) and IATA Recommended Practices, involuntary carrier-initiated flight cancellations, diversions, or schedule delays exceeding three (3) hours entitle passengers to priority re-accommodation on the next available flight or a full involuntary refund without penalty.</p>
+      </details>
+    </section>
+
+  </main>
+
+  <footer role="contentinfo">
+    <div>
+      <section aria-labelledby="footer-summary-heading">
+        <h3 id="footer-summary-heading">SkyPulse Airlines &amp; Operations</h3>
+        <p>Providing seamless passenger booking, transparent fare comparison, and worldwide flight schedule tracking across our global partner network.</p>
+        <p><small>&copy; 2026 SkyPulse Airlines, Inc. All rights reserved.</small></p>
+      </section>
+
+      <section aria-labelledby="footer-quicklinks-heading">
+        <h3 id="footer-quicklinks-heading">Passenger Services</h3>
+        <nav aria-label="Footer Navigation">
+          <ul>
+            <li><a href="../../index.html">Home</a></li>
+            <li><a href="search-flights.html">Search Flights &amp; Fares</a></li>
+            <li><a href="check-in.html">Online Check-In</a></li>
+            <li><a href="flight-status.html">Live Flight Status</a></li>
+            <li><a href="bookings-list.html">Manage Reservations</a></li>
+            <li><a href="contact.html">Customer Support &amp; FAQs</a></li>
+            <li><a href="../staff/login.html">Staff Operations Portal</a></li>
+          </ul>
+        </nav>
+      </section>
+
+      <section aria-labelledby="footer-legal-heading">
+        <h3 id="footer-legal-heading">Legal &amp; Travel Policies</h3>
+        <nav aria-label="Footer Legal Navigation">
+          <ul>
+            <li><a href="contact.html#conditions-of-carriage">General Conditions of Carriage</a></li>
+            <li><a href="contact.html#passenger-rights">Passenger Rights &amp; Montreal Convention</a></li>
+            <li><a href="contact.html#privacy-policy">Privacy Notice &amp; Data Security</a></li>
+            <li><a href="contact.html#baggage-policy">IATA Baggage Allowance Rules</a></li>
+            <li><a href="contact.html#travel-advisories">International Visa &amp; Health Entry Requirements</a></li>
+          </ul>
+        </nav>
+      </section>
+    </div>
+
+    <div>
+      <p><small>International Air Transport Association (IATA) Accredited System &bull; Compliant with W3C Semantic HTML5 &amp; WCAG 2.1 AA Accessibility Standards.</small></p>
+    </div>
+  </footer>
+
+</body>
+</html>
+
